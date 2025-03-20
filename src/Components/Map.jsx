@@ -10,7 +10,7 @@ const PetFriendlyGoogleMap = () => {
   const [map, setMap] = useState(null);
   const [markers, setMarkers] = useState([]);
   const [userLocation, setUserLocation] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [mapLoaded, setMapLoaded] = useState(false);
   
@@ -263,23 +263,6 @@ const PetFriendlyGoogleMap = () => {
       <div className="flex flex-col md:flex-row">
         {/* El mapa de Google */}
         <div className="relative w-full md:w-2/3 h-96">
-          {loading ? (
-            <div className="flex items-center justify-center h-full bg-gray-100">
-              <div className="text-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-teal-500 mx-auto mb-4"></div>
-                <p className="text-gray-600">Cargando mapa...</p>
-              </div>
-            </div>
-          ) : error ? (
-            <div className="flex items-center justify-center h-full bg-gray-100">
-              <div className="text-center text-red-500 p-4">
-                <p>{error}</p>
-                <p className="mt-2 text-sm text-gray-600">Intenta recargar la página o verificar tu conexión a internet.</p>
-              </div>
-            </div>
-          ) : (
-            <div ref={mapContainerRef} className="h-full w-full"></div>
-          )}
           
           {/* Botón para centrar en la ubicación del usuario */}
           {!loading && !error && (
