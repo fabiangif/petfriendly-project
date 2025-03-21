@@ -47,6 +47,14 @@ export default function Navbar() {
                             </Link>
 
                             <Link
+                                to="/traveler"
+                                className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-colors duration-200 ${hoverColor}`}
+                            >
+                                <MapPin className="h-5 w-5" />
+                                <span>Planes</span>
+                            </Link>
+
+                            <Link
                                 to="/asistente"
                                 className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-colors duration-200 ${hoverColor}`}
                             >
@@ -101,6 +109,15 @@ export default function Navbar() {
                         >
                             <Info className="h-6 w-6" />
                             <span className="text-lg font-medium">Normativas</span>
+                        </Link>
+
+                        <Link
+                            to="/traveler"
+                            onClick={() => setMenuOpen(false)}
+                            className={`flex items-center space-x-3 p-4 rounded-lg shadow transition-colors duration-200 bg-teal-400 text-white`}
+                        >
+                            <MapPin className="h-6 w-6" />
+                            <span className="text-lg font-medium">Planes</span>
                         </Link>
 
                         <Link
