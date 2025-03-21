@@ -219,9 +219,10 @@ const SimplePetFriendlyMap = () => {
   };
   
   return (
-    <div className="bg-white rounded-lg shadow-lg text-black p-x-8">
+    <div className="bg-white rounded-lg shadow-lg text-black p-4 sm:p-26">
+      <h1 className="text-center text-2xl md:text-5xl my-8 font-bold tracking-tighter uppercase">Encuentra el mejor sitio para tu viaje</h1>
       {/* Search and Filter Bar */}
-      <div className="p-4 border-b">
+      <div className="p-4 border-b border-gray-200">
         <div className="flex flex-col gap-3">
           <div className="relative">
             <input
@@ -275,7 +276,7 @@ const SimplePetFriendlyMap = () => {
       </div>
       
       {/* Map Legend */}
-      <div className="px-4 py-2 border-b text-sm">
+      <div className="px-4 py-2 border-b border-gray-200 text-sm">
         <div className="flex flex-wrap gap-3 items-center">
           <span className="text-gray-600 font-medium">Leyenda:</span>
           <div className="flex items-center">
@@ -330,7 +331,7 @@ const SimplePetFriendlyMap = () => {
               <span>{getTypeLabel(selectedType)}</span>
             )}
             {filteredPlaces.length > 0 && (
-              <span className="ml-2 text-sm font-normal text-gray-500">
+              <span className="text-sm font-normal text-gray-500">
                 ({filteredPlaces.length} {filteredPlaces.length === 1 ? 'resultado' : 'resultados'})
               </span>
             )}
