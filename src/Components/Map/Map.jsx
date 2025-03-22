@@ -146,13 +146,184 @@ const SimplePetFriendlyMap = () => {
   // Initialize map function
   const initMap = () => {
     if (!mapContainerRef.current) return;
+
+    const petFriendlyStyle = [
+      {
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#f5f5f5"
+          }
+        ]
+      },
+      {
+        "elementType": "labels.icon",
+        "stylers": [
+          {
+            "visibility": "on"
+          }
+        ]
+      },
+      {
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#616161"
+          }
+        ]
+      },
+      {
+        "elementType": "labels.text.stroke",
+        "stylers": [
+          {
+            "color": "#f5f5f5"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+          {
+            "color": "#00baa8"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.land_parcel",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#bdbdbd"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#eeeeee"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#757575"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#a3e0d7"  // Color derivado de #00baa8 pero más claro
+          }
+        ]
+      },
+      {
+        "featureType": "poi.park",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#00a090"  // Variación de tu color #00baa8
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#ffffff"
+          }
+        ]
+      },
+      {
+        "featureType": "road.arterial",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#757575"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#dadada"
+          }
+        ]
+      },
+      {
+        "featureType": "road.highway",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#616161"
+          }
+        ]
+      },
+      {
+        "featureType": "road.local",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#9e9e9e"
+          }
+        ]
+      },
+      {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#e5e5e5"
+          }
+        ]
+      },
+      {
+        "featureType": "transit.station",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#00baa8"
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#c1e9e5"  // Versión más clara de tu color #00baa8
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "color": "#00baa8"
+          }
+        ]
+      }
+    ];
     
     const newMap = new window.google.maps.Map(mapContainerRef.current, {
       center: { lat: 40.7128, lng: -74.0060 }, // New York as default
       zoom: 2,
       mapTypeControl: false,
       fullscreenControl: true,
-      streetViewControl: false
+      streetViewControl: false,
+      styles: petFriendlyStyle
     });
     
     setMap(newMap);
@@ -268,7 +439,7 @@ const SimplePetFriendlyMap = () => {
             <input
               type="text"
               placeholder="Buscar por nombre, ubicación o tipo..."
-              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -428,7 +599,7 @@ const SimplePetFriendlyMap = () => {
                 <div className="mt-6 flex justify-between">
                   <button className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-lg flex items-center">
                     {selectedPlace.type === 'hotel' ? (
-                      <Link to={`/place-info?place=${selectedPlace.name}`}>
+                      <Link to={`/place-info?place=${selectedPlace.name}`} className="flex items-center">
                         <Hotel className="h-4 w-4 mr-2" />
                         Reservar
                       </Link>
@@ -439,11 +610,11 @@ const SimplePetFriendlyMap = () => {
                       </>
                     ) : selectedPlace.type === 'tienda' ? (
                       <>
-                        <ShoppingBag className="h-4 w-4 mr-2" />
+                        <ShoppingBag className="h-4 w-4 mr-2 flex items-center" />
                         Ver Productos
                       </>
                     ) : (
-                      <a href={`https://www.google.com/maps/dir/${selectedPlace.lat},${selectedPlace.lng}`} target="_blank" rel="noopener noreferrer">
+                      <a href={`https://www.google.com/maps/dir/${selectedPlace.lat},${selectedPlace.lng}`} target="_blank" rel="noopener noreferrer" className="flex items-center">
                         <MapPin className="h-4 w-4 mr-2" />
                         Visitar
                       </a>

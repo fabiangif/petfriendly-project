@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Search, User, ChevronLeft, ChevronRight, Heart, Package, PawPrint, Scissors, Activity, Award, ChevronDown, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Plane, Globe, Compass, Hotel, Map, Umbrella, Calendar } from 'lucide-react';
+import bg from "../../assets/images/bg.png"
 
 const PetFriendlyTravelLanding = () => {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -243,7 +244,7 @@ const PetFriendlyTravelLanding = () => {
             {/* Header with transparent navbar would go here */}
 
             {/* Hero Section */}
-            <div className="pt-16 bg-gradient-to-r from-teal-500 to-teal-700 text-white relative h-screen flex items-center">
+            <div style={{backgroundImage: `url(${bg})`}} className="pt-16 bg-gradient-to-r from-teal-500 to-teal-700 text-white relative h-screen flex items-center">
                 <div className="absolute inset-0 overflow-hidden">
                     <img src="/api/placeholder/1920/1080" alt="Pet travel hero" className="w-full h-full object-cover opacity-20" />
                 </div>

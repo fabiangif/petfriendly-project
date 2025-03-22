@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { PawPrint, MapPin, Info, MessageSquare, Menu, X } from "lucide-react";
+import { PawPrint, MapPin, Info, MessageSquare, Menu, X, HouseIcon, PaperclipIcon } from "lucide-react";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +26,7 @@ export default function Navbar() {
                                 to="/"
                                 className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-colors duration-200 ${hoverColor}`}
                             >
-                                <MapPin className="h-5 w-5" />
+                                <HouseIcon className="h-5 w-5" />
                                 <span>Inicio</span>
                             </Link>
 
@@ -50,7 +50,7 @@ export default function Navbar() {
                                 to="/traveler"
                                 className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-colors duration-200 ${hoverColor}`}
                             >
-                                <MapPin className="h-5 w-5" />
+                                <PaperclipIcon className="h-5 w-5" />
                                 <span>Planes</span>
                             </Link>
 
@@ -89,7 +89,7 @@ export default function Navbar() {
                             onClick={() => setMenuOpen(false)}
                             className={`flex items-center space-x-3 p-4 rounded-lg shadow transition-colors duration-200 bg-teal-400 text-white`}
                         >
-                            <MapPin className="h-6 w-6" />
+                            <HouseIcon className="h-6 w-6" />
                             <span className="text-lg font-medium">Inicio</span>
                         </Link>
 
@@ -116,7 +116,7 @@ export default function Navbar() {
                             onClick={() => setMenuOpen(false)}
                             className={`flex items-center space-x-3 p-4 rounded-lg shadow transition-colors duration-200 bg-teal-400 text-white`}
                         >
-                            <MapPin className="h-6 w-6" />
+                            <PaperclipIcon className="h-6 w-6" />
                             <span className="text-lg font-medium">Planes</span>
                         </Link>
 
