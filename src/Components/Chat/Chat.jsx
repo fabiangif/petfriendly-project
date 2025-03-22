@@ -136,7 +136,8 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
         link: 'URL_informacion_playa_blanca',
       },
     ],
-    transporte: [
+    // Separar los diferentes medios de transporte
+    avion: [
       {
         text: 'Avianca permite mascotas pequeñas en cabina y mascotas más grandes en bodega con restricciones específicas.',
         image: 'URL_imagen_avianca',
@@ -144,19 +145,38 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
       },
       {
         text: 'Latam permite mascotas pequeñas en cabina y mascotas más grandes en bodega con restricciones específicas.',
-        image: 'URL_imagen_avianca',
-        link: 'URL_informacion_avianca_mascotas',
+        image: 'URL_imagen_latam',
+        link: 'URL_informacion_latam_mascotas',
       },
       {
         text: 'Wingo permite mascotas pequeñas en cabina y mascotas más grandes en bodega con restricciones específicas.',
-        image: 'URL_imagen_avianca',
-        link: 'URL_informacion_avianca_mascotas',
+        image: 'URL_imagen_wingo',
+        link: 'URL_informacion_wingo_mascotas',
       },
       {
         text: 'Jetsmart permite mascotas pequeñas en cabina y mascotas más grandes en bodega con restricciones específicas.',
-        image: 'URL_imagen_avianca',
-        link: 'URL_informacion_avianca_mascotas',
+        image: 'URL_imagen_jetsmart',
+        link: 'URL_informacion_jetsmart_mascotas',
       },
+    ],
+    coche: [
+      {
+        text: 'Para viajar en coche con tu mascota en Colombia, es recomendable usar un arnés de seguridad o transportadora adecuada que se pueda asegurar con el cinturón de seguridad.',
+        image: 'URL_imagen_coche_seguridad',
+        link: 'URL_informacion_coche_seguridad',
+      },
+      {
+        text: 'Durante viajes largos en coche, haz paradas cada 2 horas para que tu mascota pueda estirar las patas, hidratarse y hacer sus necesidades.',
+        image: 'URL_imagen_paradas_coche',
+        link: 'URL_informacion_paradas_coche',
+      },
+      {
+        text: 'No dejes nunca a tu mascota sola dentro del vehículo, especialmente en ciudades calurosas como Cartagena o Barranquilla, ya que la temperatura dentro puede subir rápidamente.',
+        image: 'URL_imagen_coche_temperatura',
+        link: 'URL_informacion_coche_temperatura',
+      },
+    ],
+    transporte_publico: [
       {
         text: 'Los taxis en Colombia generalmente aceptan mascotas, pero es mejor confirmar con el conductor antes de abordar.',
         image: 'URL_imagen_taxi',
@@ -322,51 +342,80 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
       text: 'Lo siento, no tengo información específica sobre eso. ¿Puedes preguntarme sobre hoteles, restaurantes, parques, playas, transporte, documentos o consejos para viajar con mascotas?',
     };
 
-    // Reconocimiento de palabras clave y patrones
+    // Reconocimiento de palabras clave y patrones con mejor manejo de transporte
     if (input.includes('hotel') || input.includes('alojamiento') || input.includes('hospedaje')) {
-      const categoryInfo = petTravelKnowledge.hotel;
+      const categoryInfo = petTravelColombia.hotel;
       const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
       response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre hoteles?` };
     } else if (input.includes('restaurante') || input.includes('comida') || input.includes('comer')) {
-      const categoryInfo = petTravelKnowledge.restaurante;
+      const categoryInfo = petTravelColombia.restaurante;
       const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
       response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre restaurantes?` };
     } else if (input.includes('parque') || input.includes('pasear') || input.includes('caminar')) {
-      const categoryInfo = petTravelKnowledge.parque;
+      const categoryInfo = petTravelColombia.parque;
       const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
       response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre parques?` };
     } else if (input.includes('playa') || input.includes('mar') || input.includes('arena')) {
-      const categoryInfo = petTravelKnowledge.playa;
+      const categoryInfo = petTravelColombia.playa;
       const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
       response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre playas?` };
-    } else if (input.includes('transporte') || input.includes('viajar') || input.includes('avión') || input.includes('tren') || input.includes('metro')) {
-      const categoryInfo = petTravelKnowledge.transporte;
+    } 
+    // Separar los diferentes tipos de transporte
+    else if (input.includes('avión') || input.includes('aerolínea') || input.includes('aéreo') || input.includes('vuelo') || input.includes('volar')) {
+      const categoryInfo = petTravelColombia.avion;
       const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
-      response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre transporte?` };
+      response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre viajar en avión con tu mascota?` };
+    } else if (input.includes('coche') || input.includes('auto') || input.includes('carro') || input.includes('automóvil') || input.includes('conducir')) {
+      const categoryInfo = petTravelColombia.coche;
+      const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
+      response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre viajar en coche con tu mascota?` };
+    } else if (input.includes('taxi') || input.includes('bus') || input.includes('transmilenio') || input.includes('metro') || input.includes('transporte público')) {
+      const categoryInfo = petTravelColombia.transporte_publico;
+      const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
+      response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre transporte público?` };
+    } 
+    // Categoría genérica de transporte (solo si no especifica el tipo)
+    else if (input.includes('transporte') || input.includes('viajar')) {
+      // Damos una respuesta más general sobre transporte
+      response = { 
+        isBot: true, 
+        text: `Hay varias opciones para viajar con tu mascota en Colombia. Puedes preguntar específicamente por:\n\n- Viajar en avión\n- Viajar en coche\n- Usar transporte público (taxis, buses, TransMilenio)\n\n¿Sobre cuál tipo de transporte te gustaría saber más?` 
+      };
     } else if (input.includes('documentos') || input.includes('papeles') || input.includes('requisitos')) {
-      const categoryInfo = petTravelKnowledge.documentos;
+      const categoryInfo = petTravelColombia.documentos;
       const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
       response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre documentos?` };
     } else if (input.includes('consejos') || input.includes('recomendaciones') || input.includes('tips')) {
-      const categoryInfo = petTravelKnowledge.consejos;
+      const categoryInfo = petTravelColombia.consejos;
       const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
       response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas más consejos para viajar con tu mascota?` };
+    } else if (input.includes('veterinario') || input.includes('vet') || input.includes('médico')) {
+      const categoryInfo = petTravelColombia.veterinario;
+      const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
+      response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre veterinarios?` };
+    } else if (input.includes('tienda') || input.includes('comprar') || input.includes('accesorios')) {
+      const categoryInfo = petTravelColombia.tienda;
+      const randomInfo = categoryInfo[Math.floor(Math.random() * categoryInfo.length)];
+      response = { ...randomInfo, isBot: true, text: `${randomInfo.text}\n\n¿Necesitas información más específica sobre tiendas para mascotas?` };
+    } else if (input.includes('ciudad') || input.includes('destino')) {
+      const randomCity = petTravelColombia.ciudades_principales[Math.floor(Math.random() * petTravelColombia.ciudades_principales.length)];
+      response = { isBot: true, text: `En ${randomCity.ciudad} puedes encontrar lugares destacados como: ${randomCity.destacados.join(', ')}.\n\n¿Necesitas información más específica sobre alguna ciudad?` };
     }
 
     return response;
   };
 
   const suggestionQuestions = [
-    '¿Dónde puedo encontrar hoteles pet-friendly en Europa?',
+    '¿Dónde puedo encontrar hoteles pet-friendly en Colombia?',
     '¿Qué documentos necesita mi mascota para viajar internacionalmente?',
-    '¿Cuáles son los mejores restaurantes para ir con mi perro en Barcelona?',
-    '¿Qué parques en Nueva York permiten perros sin correa?',
+    '¿Cuáles son los mejores restaurantes para ir con mi perro en Bogotá?',
+    '¿Qué parques en Medellin permiten perros sin correa?',
     '¿Cómo puedo viajar en avión con mi gato?',
     '¿Qué consejos me das para viajar con mi mascota en coche?',
-    '¿Dónde puedo encontrar playas para perros en España?',
-    '¿Qué requisitos necesito para viajar con mi mascota a Japón?',
+    '¿Dónde puedo encontrar playas para perros en Colombia?',
+    '¿Qué requisitos necesito para viajar con mi mascota a Cartagena?',
     '¿Qué restaurantes de paris son los mas recomendados para ir con mi mascota?',
-    '¿Existen lugares para viajar a suramerica con mi mascota?'
+    '¿Existen lugares para viajar a Colombia con mi mascota?'
   ];
 
   const handleSendMessage = (e) => {

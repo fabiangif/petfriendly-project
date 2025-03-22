@@ -443,10 +443,10 @@ const SimplePetFriendlyMap = () => {
                         Ver Productos
                       </>
                     ) : (
-                      <>
+                      <a href={`https://www.google.com/maps/dir/${selectedPlace.lat},${selectedPlace.lng}`} target="_blank" rel="noopener noreferrer">
                         <MapPin className="h-4 w-4 mr-2" />
                         Visitar
-                      </>
+                      </a>
                     )}
                   </button>
                   
