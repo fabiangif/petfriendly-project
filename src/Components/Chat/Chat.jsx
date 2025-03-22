@@ -37,95 +37,282 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chatMessages]);
 
-  const petTravelKnowledge = {
+  const petTravelColombia = {
     hotel: [
       {
-        text: 'Muchas cadenas como Kimpton Hotels, La Quinta y Best Western aceptan mascotas. Busca hoteles con "pet-friendly" en sus filtros de búsqueda.',
-        image: 'URL_de_la_imagen_de_hotel',
-        link: 'URL_de_la_informacion_de_hotel',
+        text: 'Hotel Canino de Lujo en Cartagena acepta mascotas de todos los tamaños sin cargo adicional y está ubicado frente al mar.',
+        image: 'URL_imagen_hotel_cartagena',
+        link: 'URL_informacion_hotel_cartagena',
       },
       {
-        text: 'Airbnb tiene un filtro específico para alojamientos que aceptan mascotas. Asegúrate de leer las reseñas para ver si otros viajeros tuvieron buenas experiencias.',
-        link: 'URL_de_airbnb',
+        text: 'Hotel Pet Paradise en Santa Marta es un resort exclusivo para mascotas con actividades recreativas y spa cerca de la playa.',
+        image: 'URL_imagen_hotel_santa_marta',
+        link: 'URL_informacion_hotel_santa_marta',
       },
       {
-        text: 'En Europa, ciudades como Amsterdam, Berlín y Viena tienen muchos hoteles pet-friendly. Busca hoteles con jardines o parques cercanos para que tu mascota pueda pasear.',
-        image: 'URL_de_la_imagen_de_europa',
+        text: 'Hotel Mascota Feliz en San Andrés es un hotel boutique en la isla que acepta mascotas con servicios de spa y guardería.',
+        image: 'URL_imagen_hotel_san_andres',
+        link: 'URL_informacion_hotel_san_andres',
       },
-      // ... más información sobre hoteles
+      {
+        text: 'Eco-Hotel Mascotas Bienvenidas en Salento es un hotel ecológico en el eje cafetero donde las mascotas pueden disfrutar de senderos naturales.',
+        image: 'URL_imagen_hotel_salento',
+        link: 'URL_informacion_hotel_salento',
+      },
+      {
+        text: 'Hotel Canino Palmas en Medellín es un hotel boutique en El Poblado con camas especiales para mascotas y servicio de paseo.',
+        image: 'URL_imagen_hotel_medellin',
+        link: 'URL_informacion_hotel_medellin',
+      },
     ],
     restaurante: [
       {
-        text: 'En París, muchos cafés permiten mascotas en las terrazas exteriores. Busca restaurantes con patios o terrazas.',
-        image: 'URL_de_la_imagen_de_paris',
+        text: 'Café Patitas Felices en Medellín es una cafetería que permite la entrada con mascotas y ofrece snacks especiales para perros.',
+        image: 'URL_imagen_cafe_medellin',
+        link: 'URL_informacion_cafe_medellin',
       },
       {
-        text: 'Barcelona tiene varios restaurantes con áreas designadas para mascotas. Busca restaurantes con "pet-friendly" en sus filtros de búsqueda.',
-        link: 'URL_de_restaurantes_en_barcelona',
+        text: 'Restaurante El Perro Andaluz en Cali cuenta con terraza pet-friendly y menú especial para mascotas.',
+        image: 'URL_imagen_restaurante_cali',
+        link: 'URL_informacion_restaurante_cali',
       },
-      // ... más información sobre restaurantes
+      {
+        text: 'Café Peludo en Bogotá es una cafetería temática con gatos adoptables y opciones vegetarianas.',
+        image: 'URL_imagen_cafe_bogota',
+        link: 'URL_informacion_cafe_bogota',
+      },
+      {
+        text: 'Cat Café Bogotá es una cafetería donde se permite la entrada con gatos y hay felinos residentes para interactuar.',
+        image: 'URL_imagen_cat_cafe_bogota',
+        link: 'URL_informacion_cat_cafe_bogota',
+      },
+      {
+        text: 'Brunch & Pets en Bogotá es un restaurante especializado en brunch con mesas adaptadas para que las mascotas estén cómodas.',
+        image: 'URL_imagen_brunch_bogota',
+        link: 'URL_informacion_brunch_bogota',
+      },
     ],
     parque: [
       {
-        text: 'Central Park en Nueva York tiene áreas designadas donde los perros pueden estar sin correa en ciertos horarios. Busca parques con áreas cercadas para perros.',
-        image: 'URL_de_la_imagen_de_central_park',
+        text: 'Parque Canino Bogotá es un parque exclusivo para perros con áreas cercadas y obstáculos para entrenamiento.',
+        image: 'URL_imagen_parque_bogota',
+        link: 'URL_informacion_parque_bogota',
       },
       {
-        text: 'El Tiergarten en Berlín es un gran parque en el centro de la ciudad donde puedes pasear con tu mascota. Busca parques con senderos para caminar y áreas verdes.',
-        link: 'URL_de_tiergarten',
+        text: 'Parque Simón Bolívar - Área Canina en Bogotá tiene una zona especial para perros dentro del parque más grande de la ciudad.',
+        image: 'URL_imagen_simon_bolivar',
+        link: 'URL_informacion_simon_bolivar',
       },
-      // ... más información sobre parques
+      {
+        text: 'Parque Canino El Poblado en Medellín es un amplio parque con zonas verdes y espacios de recreación para mascotas en el barrio El Poblado.',
+        image: 'URL_imagen_parque_poblado',
+        link: 'URL_informacion_parque_poblado',
+      },
+      {
+        text: 'Parque Canino Villa del Río en Cali tiene obstáculos y zonas de juego para perros de todos los tamaños.',
+        image: 'URL_imagen_parque_cali',
+        link: 'URL_informacion_parque_cali',
+      },
+      {
+        text: 'Parque Canino El Virrey en Bogotá es un parque espacioso cerca al Parque El Virrey con zonas recreativas para perros y eventos comunitarios.',
+        image: 'URL_imagen_parque_virrey',
+        link: 'URL_informacion_parque_virrey',
+      },
     ],
     playa: [
       {
-        text: 'En Barcelona, la Playa de Llevant es una playa para perros popular. Busca playas con áreas designadas para mascotas.',
-        image: 'URL_de_la_imagen_de_playa_barcelona',
-        link: 'URL_de_playas_para_perros_barcelona',
+        text: 'En Santa Marta hay áreas designadas en algunas playas donde las mascotas son permitidas durante ciertas horas.',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSXO83jDzsm9NIsceXmHsCNVgdeqaKhLdBtg&s',
+        link: 'URL_informacion_playas_santa_marta',
       },
       {
-        text: 'En Italia, Bau Beach en Maccarese es completamente para perros. Busca playas con servicios para mascotas, como duchas y bebederos.',
-        image: 'URL_de_la_imagen_de_bau_beach',
-        link: 'URL_de_bau_beach',
+        text: 'En San Andrés, algunas playas menos concurridas permiten mascotas. Consulta las regulaciones locales antes de visitar.',
+        image: 'https://playasdecolombia.co/wp-content/uploads/2024/02/isla-de-san-andres-playas-de-colombia-2.webp',
+        link: 'URL_informacion_playas_san_andres',
       },
-      // ... más información sobre playas
+      {
+        text: 'Playa Blanca en Cartagena tiene algunas áreas donde los perros son permitidos en temporada baja y horas específicas.',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROft2NExhJVQiFDjwesPJwTa3z10AClHIZQw&s',
+        link: 'URL_informacion_playa_blanca',
+      },
     ],
     transporte: [
       {
-        text: 'La mayoría de las aerolíneas permiten mascotas pequeñas en cabina y mascotas más grandes en bodega con restricciones. Consulta las políticas de la aerolínea antes de reservar.',
-        image: 'URL_de_la_imagen_de_avion',
-        link: 'URL_de_informacion_de_aerolineas',
+        text: 'Avianca permite mascotas pequeñas en cabina y mascotas más grandes en bodega con restricciones específicas.',
+        image: 'URL_imagen_avianca',
+        link: 'URL_informacion_avianca_mascotas',
       },
       {
-        text: 'Los trenes europeos generalmente permiten mascotas pequeñas, a veces con un boleto adicional. Busca trenes con compartimentos para mascotas.',
-        image: 'URL_de_la_imagen_de_tren',
-        link: 'URL_de_informacion_de_trenes_europa',
+        text: 'Latam permite mascotas pequeñas en cabina y mascotas más grandes en bodega con restricciones específicas.',
+        image: 'URL_imagen_avianca',
+        link: 'URL_informacion_avianca_mascotas',
       },
-      // ... más información sobre transporte
+      {
+        text: 'Wingo permite mascotas pequeñas en cabina y mascotas más grandes en bodega con restricciones específicas.',
+        image: 'URL_imagen_avianca',
+        link: 'URL_informacion_avianca_mascotas',
+      },
+      {
+        text: 'Jetsmart permite mascotas pequeñas en cabina y mascotas más grandes en bodega con restricciones específicas.',
+        image: 'URL_imagen_avianca',
+        link: 'URL_informacion_avianca_mascotas',
+      },
+      {
+        text: 'Los taxis en Colombia generalmente aceptan mascotas, pero es mejor confirmar con el conductor antes de abordar.',
+        image: 'URL_imagen_taxi',
+        link: 'URL_informacion_taxi_mascotas',
+      },
+      {
+        text: 'TransMilenio en Bogotá permite mascotas pequeñas en transportadoras. Verifica las últimas normativas antes de viajar.',
+        image: 'URL_imagen_transmilenio',
+        link: 'URL_informacion_transmilenio_mascotas',
+      },
+      {
+        text: 'Los buses intermunicipales suelen permitir mascotas pequeñas en transportadoras colocadas bajo el asiento. Algunas empresas cobran extra.',
+        image: 'URL_imagen_bus',
+        link: 'URL_informacion_buses_mascotas',
+      },
+    ],
+    veterinario: [
+      {
+        text: 'Clínica Veterinaria Bogotá ofrece servicio veterinario completo con especialistas en animales exóticos y servicios de emergencia 24/7.',
+        image: 'URL_imagen_veterinario_bogota',
+        link: 'URL_informacion_veterinario_bogota',
+      },
+      {
+        text: 'Veterinario 24h Medellín es un centro veterinario con atención de emergencias las 24 horas, equipado con tecnología avanzada.',
+        image: 'URL_imagen_veterinario_medellin',
+        link: 'URL_informacion_veterinario_medellin',
+      },
+      {
+        text: 'Clínica Veterinaria del Caribe en Barranquilla ofrece servicio veterinario completo con especialistas en animales exóticos y servicios de emergencia 24/7.',
+        image: 'URL_imagen_veterinario_barranquilla',
+        link: 'URL_informacion_veterinario_barranquilla',
+      },
+      {
+        text: 'Hospital Veterinario Central en Bogotá es el mayor hospital veterinario de la ciudad con todas las especialidades médicas.',
+        image: 'URL_imagen_hospital_veterinario',
+        link: 'URL_informacion_hospital_veterinario',
+      },
+    ],
+    tienda: [
+      {
+        text: 'Mascotas & Más en Barranquilla es una tienda especializada en productos orgánicos y accesorios de alta calidad para mascotas.',
+        image: 'URL_imagen_tienda_barranquilla',
+        link: 'URL_informacion_tienda_barranquilla',
+      },
+      {
+        text: 'PetColombia Store en Bogotá es una tienda grande con todo tipo de suministros para mascotas, desde alimentos hasta juguetes y ropa.',
+        image: 'URL_imagen_tienda_bogota',
+        link: 'URL_informacion_tienda_bogota',
+      },
+      {
+        text: 'Pet Corner Colombiano en Pereira es una boutique para mascotas con productos premium y una sección de alimentos naturales y orgánicos.',
+        image: 'URL_imagen_tienda_pereira',
+        link: 'URL_informacion_tienda_pereira',
+      },
+      {
+        text: 'Mundo Animal Store en Cartagena es una tienda completa con productos importados y locales para todo tipo de mascotas en el centro de la ciudad.',
+        image: 'URL_imagen_tienda_cartagena',
+        link: 'URL_informacion_tienda_cartagena',
+      },
+      {
+        text: 'Pet Boutique Premium en Villavicencio es una boutique exclusiva con ropa, accesorios y productos gourmet para mascotas.',
+        image: 'URL_imagen_tienda_villavicencio',
+        link: 'URL_informacion_tienda_villavicencio',
+      },
     ],
     documentos: [
       {
-        text: 'Para viajes internacionales, se necesita un certificado de salud veterinario y certificados de vacunación (especialmente rabia). Consulta los requisitos específicos del país antes de viajar.',
-        image: 'URL_de_la_imagen_de_documentos',
-        link: 'URL_de_informacion_de_documentos_viaje',
+        text: 'Para viajar con mascotas dentro de Colombia se requiere un certificado de salud veterinario reciente (no mayor a 5 días) y carnet de vacunación.',
+        image: 'URL_imagen_documentos_nacionales',
+        link: 'URL_informacion_documentos_nacionales',
       },
       {
-        text: 'La Unión Europea requiere un pasaporte para mascotas para viajar entre países miembros. Infórmate sobre los requisitos específicos de cada país.',
-        image: 'URL_de_la_imagen_de_pasaporte_mascota',
-        link: 'URL_de_pasaporte_mascota_europa',
+        text: 'Para viajar en avión dentro de Colombia, cada aerolínea tiene requisitos específicos. Generalmente necesitarás certificado de salud, carnet de vacunación y reserva previa para la mascota.',
+        image: 'URL_imagen_requisitos_aereos',
+        link: 'URL_informacion_requisitos_aereos',
       },
-      // ... más información sobre documentos
+      {
+        text: 'Para cruzar fronteras terrestres desde Colombia hacia países vecinos, necesitarás certificado internacional de exportación emitido por el ICA.',
+        image: 'URL_imagen_documentos_internacionales',
+        link: 'URL_informacion_documentos_internacionales',
+      },
     ],
     consejos: [
       {
-        text: 'Visita al veterinario antes del viaje para asegurarte de que tu mascota esté en buenas condiciones. Lleva contigo su historial médico y certificados de vacunación.',
-        image: 'URL_de_la_imagen_de_veterinario',
+        text: 'Antes de viajar por Colombia con tu mascota, investiga si tu alojamiento realmente acepta mascotas y si tienen restricciones de tamaño o raza.',
+        image: 'URL_imagen_consejo_alojamiento',
       },
       {
-        text: 'Lleva siempre agua fresca y comida para tu mascota, especialmente en viajes largos. Haz paradas frecuentes para que pueda estirar las piernas y hacer sus necesidades.',
-        image: 'URL_de_la_imagen_de_comida_para_mascotas',
+        text: 'En las ciudades principales de Colombia (Bogotá, Medellín, Cali), existen aplicaciones móviles que te indican los lugares pet-friendly cercanos.',
+        image: 'URL_imagen_apps_mascotas',
       },
-      // ... más consejos
+      {
+        text: 'Lleva siempre contigo una botella de agua y un recipiente plegable, especialmente en ciudades con clima caluroso como Cartagena o Barranquilla.',
+        image: 'URL_imagen_agua_mascota',
+      },
+      {
+        text: 'En Colombia, muchos centros comerciales permiten mascotas. Verifica en la entrada o en el sitio web del establecimiento antes de visitar.',
+        image: 'URL_imagen_centro_comercial',
+      },
+      {
+        text: 'Ten en cuenta que en temporada alta turística (diciembre-enero, Semana Santa), muchos alojamientos pet-friendly pueden estar completos. Reserva con anticipación.',
+        image: 'URL_imagen_reserva_anticipada',
+      },
     ],
+    ciudades_principales: [
+      {
+        ciudad: 'Bogotá',
+        destacados: [
+          'Parque Canino El Virrey',
+          'Parque Simón Bolívar - Área Canina',
+          'Café Peludo',
+          'Hospital Veterinario Central',
+          'PetColombia Store'
+        ]
+      },
+      {
+        ciudad: 'Medellín',
+        destacados: [
+          'Parque Canino El Poblado',
+          'Parque Canino Laureles',
+          'Café Patitas Felices',
+          'Hotel Canino Palmas',
+          'Veterinario 24h Medellín'
+        ]
+      },
+      {
+        ciudad: 'Cali',
+        destacados: [
+          'Parque Canino Villa del Río',
+          'Parque Canino La Flora',
+          'Restaurante El Perro Andaluz',
+          'Veterinaria El Bosque',
+          'Centro Veterinario 24h Cali'
+        ]
+      },
+      {
+        ciudad: 'Cartagena',
+        destacados: [
+          'Hotel Canino de Lujo',
+          'Café Patitas',
+          'Mundo Animal Store',
+          'Centro Veterinario Especializado',
+          'Playa Blanca (zonas específicas)'
+        ]
+      },
+      {
+        ciudad: 'Barranquilla',
+        destacados: [
+          'Parque Canino del Viento',
+          'Restaurante El Perro Feliz',
+          'Mascotas & Más',
+          'Clínica Veterinaria del Caribe',
+          'Centro Médico Animal del Norte'
+        ]
+      }
+    ]
   };
 
   const generateResponse = (userInput) => {
