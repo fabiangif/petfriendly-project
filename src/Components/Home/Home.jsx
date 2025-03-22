@@ -244,9 +244,9 @@ const PetFriendlyTravelLanding = () => {
             {/* Header with transparent navbar would go here */}
 
             {/* Hero Section */}
-            <div style={{backgroundImage: `url(${bg})`}} className="pt-16 bg-gradient-to-r from-teal-500 to-teal-700 text-white relative h-screen flex items-center">
+            <div className="pt-16 bg-gradient-to-r from-teal-500 to-teal-700 text-white relative h-screen flex items-center">
                 <div className="absolute inset-0 overflow-hidden">
-                    <img src="/api/placeholder/1920/1080" alt="Pet travel hero" className="w-full h-full object-cover opacity-20" />
+                    <img src={bg} alt="Pet travel hero" className="w-full h-full object-cover opacity-60" />
                 </div>
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="text-center max-w-3xl mx-auto">
