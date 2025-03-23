@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Search, User, ChevronLeft, ChevronRight, Heart, Package, PawPrint, Scissors, Activity, Award, ChevronDown, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Plane, Globe, Compass, Hotel, Map, Umbrella, Calendar } from 'lucide-react';
 import bg from "../../assets/images/bg.png"
+import bg3 from "../../assets/images/bg3.png"
+import bg2 from '../../assets/images/bg2.png'
+import HeroSection from './Hero';
 
 const PetFriendlyTravelLanding = () => {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -96,18 +99,21 @@ const PetFriendlyTravelLanding = () => {
             description: "Vuelos, hoteles y experiencias diseñadas para ti y tu mascota",
             buttonText: "Explorar Destinos",
             icon: <Plane size={20} />,
+            image: bg
         },
         {
             title: "Destinos Pet-Friendly por todo el mundo",
             description: "Aventuras sin preocupaciones, con servicios especiales para mascotas",
             buttonText: "Ver Ofertas",
             icon: <Globe size={20} />,
+            image: bg2
         },
         {
             title: "Servicios Premium para Viajeros con Mascotas",
             description: "Transporte, alojamiento y actividades que incluyen a tu compañero peludo",
             buttonText: "Reservar Ahora",
             icon: <Compass size={20} />,
+            image: bg3
         }
     ];
 
@@ -117,7 +123,7 @@ const PetFriendlyTravelLanding = () => {
             name: "Vuelos Pet-Friendly",
             icon: <Plane size={24} className="text-teal-600" />,
             description: "Aerolíneas que aceptan mascotas en cabina o bodega",
-            bgColor: "bg-teal-100"
+            bgColor: "bg-teal-100",
         },
         {
             name: "Alojamientos",
@@ -244,46 +250,7 @@ const PetFriendlyTravelLanding = () => {
             {/* Header with transparent navbar would go here */}
 
             {/* Hero Section */}
-            <div className="pt-16 bg-gradient-to-r from-teal-500 to-teal-700 text-white relative h-screen flex items-center">
-                <div className="absolute inset-0 overflow-hidden">
-                    <img src={bg} alt="Pet travel hero" className="w-full h-full object-cover opacity-60" />
-                </div>
-                <div className="container mx-auto px-6 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto">
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6">{heroSlides[activeSlide].title}</h1>
-                        <p className="text-xl mb-8">{heroSlides[activeSlide].description}</p>
-                        <button className="bg-white text-teal-500 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition transform hover:scale-105 flex items-center mx-auto">
-                            {heroSlides[activeSlide].icon}
-                            <span className="ml-2">{heroSlides[activeSlide].buttonText}</span>
-                        </button>
-                    </div>
-                </div>
-
-                {/* Hero Controls */}
-                <button
-                    onClick={() => setActiveSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1))}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 text-teal-500"
-                >
-                    <ChevronLeft size={24} />
-                </button>
-                <button
-                    onClick={() => setActiveSlide((prev) => (prev + 1) % heroSlides.length)}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 text-teal-500"
-                >
-                    <ChevronRight size={24} />
-                </button>
-
-                {/* Hero Indicators */}
-                <div className="absolute bottom-10 left-0 right-0 flex justify-center space-x-2">
-                    {heroSlides.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setActiveSlide(index)}
-                            className={`w-3 h-3 rounded-full ${activeSlide === index ? 'bg-white' : 'bg-white bg-opacity-50'}`}
-                        />
-                    ))}
-                </div>
-            </div>
+            <HeroSection bg={bg} heroSlides={heroSlides} />
 
             {/* Stats Section */}
             <section className="py-12 bg-white border-b">
