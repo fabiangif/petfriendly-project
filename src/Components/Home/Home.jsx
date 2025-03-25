@@ -9,6 +9,10 @@ const PetFriendlyTravelLanding = () => {
     const [activeSlide, setActiveSlide] = useState(0);
     const [activeTestimonial, setActiveTestimonial] = useState(0);
 
+    const formatCurrency = (value) => {
+        return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value);
+    };
+
     // Simulated travel package data
     const travelPackages = [
         {
@@ -16,8 +20,8 @@ const PetFriendlyTravelLanding = () => {
             name: "Europa Pet-Friendly",
             category: "Internacional",
             description: "Recorre las ciudades más amigables con mascotas en Europa con alojamientos y transportes especializados.",
-            price: 1499.99,
-            rating: 4.7,
+            price: 11499999,
+            rating: 8999000,
             image: "/api/placeholder/300/300",
             tag: "Destacado",
             tagColor: "bg-yellow-500"
@@ -27,8 +31,8 @@ const PetFriendlyTravelLanding = () => {
             name: "Escapada Playa & Mascotas",
             category: "Nacional",
             description: "Descubre las mejores playas donde tu mascota es bienvenida, con hoteles y actividades especiales.",
-            price: 699.99,
-            oldPrice: 899.99,
+            price: 1099000,
+            oldPrice: 899000,
             rating: 5,
             image: "/api/placeholder/300/300",
             tag: "Oferta",
@@ -39,8 +43,8 @@ const PetFriendlyTravelLanding = () => {
             name: "Montañas Pet-Friendly",
             category: "Aventura",
             description: "Aventuras en la montaña con rutas especiales para mascotas y alojamientos rurales equipados.",
-            price: 849.99,
-            rating: 4.5,
+            price: 1699000,
+            rating: 1399000,
             image: "/api/placeholder/300/300",
             tag: "Eco",
             tagColor: "bg-green-500"
@@ -50,8 +54,8 @@ const PetFriendlyTravelLanding = () => {
             name: "City Break con Mascota",
             category: "Urbano",
             description: "Explora las ciudades más pet-friendly con guías especializados y acceso a todas las atracciones.",
-            price: 599.99,
-            rating: 4.8,
+            price: 1699000,
+            rating: 1399000,
             image: "/api/placeholder/300/300",
             tag: "Nuevo",
             tagColor: "bg-purple-500"
@@ -229,9 +233,9 @@ const PetFriendlyTravelLanding = () => {
                     <p className="text-gray-600 text-sm mb-3">{product.description}</p>
                     <div className="flex items-center justify-between mb-3">
                         <div>
-                            <span className="text-xl font-bold text-gray-800">€{product.price.toFixed(2)}</span>
+                            <span className="text-xl font-bold text-gray-800">{formatCurrency(product.price)} COP</span>
                             {product.oldPrice && (
-                                <span className="text-sm text-gray-500 line-through ml-2">€{product.oldPrice.toFixed(2)}</span>
+                                <span className="text-sm text-gray-500 line-through ml-2">{formatCurrency(product.oldPrice)} COP</span>
                             )}
                         </div>
                         <RatingStars rating={product.rating} />
