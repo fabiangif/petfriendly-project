@@ -2,6 +2,17 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 
 export const CartContext = createContext();
 
+// Función para limpiar y convertir precios
+const cleanPrice = (price) => {
+  if (typeof price === 'number') return price;
+  
+  // Eliminar símbolo de $ y puntos de separación de miles
+  const cleanedPrice = price.replace('$', '').replace(/\./g, '').trim();
+  
+  // Convertir a número, reemplazando la coma decimal con punto
+  return parseFloat(cleanedPrice.replace(',', '.'));
+};
+
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
     try {
@@ -76,14 +87,23 @@ export const CartProvider = ({ children }) => {
     const nights = item.startDate && item.endDate 
       ? Math.ceil((new Date(item.endDate) - new Date(item.startDate)) / (1000 * 60 * 60 * 24)) 
       : 1;
-    const price = nights * (item.precioNoche || 0);
+    
+    // Limpiar y calcular precio por noche
+    const pricePerNight = cleanPrice(item.precioNoche);
+    const price = nights * pricePerNight;
+
+    // Manejar cargo adicional por mascota si existe
+    const petSurcharge = item.cargoAdicionalMascota 
+      ? cleanPrice(item.cargoAdicionalMascota) * (item.pets || 0)
+      : 0;
 
     return {
       ...item,
       id: item.id || `hotel-${Date.now()}`,
       type: 'hotel',
       nights,
-      price,
+      pricePerNight,
+      price: price + petSurcharge,
       startDate: item.startDate,
       endDate: item.endDate
     };
@@ -111,7 +131,7 @@ export const CartProvider = ({ children }) => {
       return false;
     }
 
-    if (!item.precioNoche || item.precioNoche <= 0) {
+    if (!item.precioNoche || cleanPrice(item.precioNoche) <= 0) {
       console.error('El hotel debe tener un precio de noche válido');
       return false;
     }

@@ -12,6 +12,14 @@ const HotelDatePicker = ({ selectedPlace, addToCart }) => {
 
     console.log(selectedPlace)
 
+    const formatCurrency = (value) => {
+        return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value);
+    };
+
+    const parsePrice = (price) => {
+        return Number(price.replace(/[^0-9,-]+/g, '').replace(',', '.'));
+    };
+
     const calculateNights = () => {
         if (startDate && endDate) {
             const nights = Math.floor((endDate - startDate) / (1000 * 60 * 60 * 24));
@@ -28,12 +36,11 @@ const HotelDatePicker = ({ selectedPlace, addToCart }) => {
                 startDate: startDate.toISOString().split('T')[0],
                 endDate: endDate.toISOString().split('T')[0],
                 nights: calculateNights(),
-                price: selectedPlace.precioNoche * calculateNights()
+                price: parsePrice(selectedPlace.precioNoche) * calculateNights()
             };
 
             addToCart(bookingDetails);
-            const newDateRange = [null, null];
-            setDateRange(newDateRange);
+            setDateRange([null, null]);
         } else {
             alert('Por favor, selecciona fechas de inicio y fin');
         }
@@ -68,8 +75,8 @@ const HotelDatePicker = ({ selectedPlace, addToCart }) => {
                     <div className="flex items-center gap-3">
                         <DollarSign className="text-green-600" />
                         <span className="font-bold text-gray-800">
-                        {calculateNights()} noches x €{selectedPlace.precioNoche || 0} = 
-                        €{calculateNights() * (selectedPlace.precioNoche || 0)}
+                            {calculateNights()} noches x {formatCurrency(parsePrice(selectedPlace.precioNoche) || 0)} = 
+                            {formatCurrency(calculateNights() * (parsePrice(selectedPlace.precioNoche) || 0))}
                         </span>
                     </div>
                 </div>

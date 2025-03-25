@@ -14,20 +14,24 @@ const getAdditionalInfo = (place) => {
         web: `https://www.${place.name.toLowerCase().replace(/\s+/g, '')}.com`,
     };
 
+    const formatCOP = (value) => {
+        return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(value);
+    };
+
     switch (place.type) {
         case 'hotel':
             return {
                 ...baseInfo,
-                precioNoche: Math.floor(Math.random() * 150) + 50,
+                precioNoche: formatCOP(Math.floor(Math.random() * 1500000) + 50000),
                 servicios: ['Wi-Fi gratis', 'Desayuno incluido', 'Estacionamiento', 'Área para mascotas'],
                 tamañosMascotasPermitidos: place.petFriendly ? ['Pequeño', 'Mediano', 'Grande'] : [],
-                cargoAdicionalMascota: place.petFriendly ? Math.floor(Math.random() * 30) : 'No admite mascotas',
+                cargoAdicionalMascota: place.petFriendly ? formatCOP(Math.floor(Math.random() * 30000)) : 'No admite mascotas',
                 reservaOnline: true
             };
         case 'restaurante':
             return {
                 ...baseInfo,
-                precioPromedio: Math.floor(Math.random() * 40) + 10,
+                precioPromedio: formatCOP(Math.floor(Math.random() * 400000) + 10000),
                 cocina: ['Local', 'Internacional', 'Opciones vegetarianas'],
                 menuMascotas: place.petFriendly ? ['Snacks caseros', 'Agua fresca', 'Galletas premium'] : [],
                 terraza: true,
@@ -55,7 +59,7 @@ const getAdditionalInfo = (place) => {
                 ...baseInfo,
                 especialidades: ['Medicina general', 'Cirugía', 'Dermatología', 'Odontología', 'Cardiología'],
                 servicios: ['Consultas', 'Vacunación', 'Emergencias 24h', 'Análisis clínicos', 'Radiografías'],
-                precioConsulta: Math.floor(Math.random() * 80) + 40,
+                precioConsulta: formatCOP(Math.floor(Math.random() * 80000) + 40000),
                 citaOnline: true
             };
         default:
@@ -294,7 +298,7 @@ const PlaceDetail = () => {
                                         <DollarSign className="w-5 h-5 text-green-600" />
                                         Precio por noche
                                     </h3>
-                                    <p className="text-2xl font-bold text-green-600">€{additionalInfo.precioNoche}</p>
+                                    <p className="text-2xl font-bold text-green-600">{additionalInfo.precioNoche} COP</p>
                                 </div>
 
                                 <div>
@@ -316,7 +320,7 @@ const PlaceDetail = () => {
                                     {selectedPlace.petFriendly ? (
                                         <>
                                             <p className="mb-2">
-                                                Cargo adicional: <span className="font-medium">€{additionalInfo.cargoAdicionalMascota}</span>
+                                                Cargo adicional: <span className="font-medium">{additionalInfo.cargoAdicionalMascota} COP</span>
                                             </p>
                                             <p className="mb-2">Tamaños permitidos:</p>
                                             <div className="flex gap-2">

@@ -152,7 +152,7 @@ const PetFriendlyTravelLanding = () => {
             icon: <Package size={20} className="text-blue-600" />,
             description: "Asesoramiento y gestión de toda la documentación necesaria para viajar con tu mascota internacionalmente: pasaportes, microchips, vacunas y certificados sanitarios.",
             linkText: "Consultar requisitos",
-            image: "/api/placeholder/400/250",
+            image: "https://www.portafolio.co/files/article_new_multimedia/uploads/2024/08/13/66bb75e78cef8.jpeg",
             bgColor: "bg-blue-100",
             textColor: "text-blue-600"
         },
@@ -161,7 +161,7 @@ const PetFriendlyTravelLanding = () => {
             icon: <Plane size={20} className="text-green-600" />,
             description: "Servicio de búsqueda y reserva en aerolíneas pet-friendly con las mejores condiciones para tu mascota, tanto en cabina como en bodega climatizada.",
             linkText: "Buscar vuelos",
-            image: "/api/placeholder/400/250",
+            image: "https://images.ctfassets.net/1sv59kqumaqp/3o655w9mwQ0yMJnR1gdCsV/7fb8ecc2263eb3b61b25b2336836e9ac/perro_con_pase_de_abordar.jpg",
             bgColor: "bg-green-100",
             textColor: "text-green-600"
         },
@@ -170,7 +170,7 @@ const PetFriendlyTravelLanding = () => {
             icon: <Calendar size={20} className="text-purple-600" />,
             description: "Creamos un plan de viaje completo adaptado a ti y tu mascota, incluyendo alojamientos, transportes, restaurantes y actividades donde ambos sean bienvenidos.",
             linkText: "Diseñar itinerario",
-            image: "/api/placeholder/400/250",
+            image: "https://www.universal-assistance.com/uablog/wp-content/uploads/2023/01/como-elaborar-itinerario-de-viaje.jpg",
             bgColor: "bg-purple-100",
             textColor: "text-purple-600"
         }
@@ -215,7 +215,7 @@ const PetFriendlyTravelLanding = () => {
         return (
             <div className="text-black bg-white rounded-lg shadow-md overflow-hidden transition transform hover:-translate-y-1 hover:shadow-lg">
                 <div className="relative">
-                    <img src={product.image} alt={product.name} className="w-full h-64 object-cover" />
+                    <img src={product.image} alt={product.name} className="w-full h-64 object-cover" loading='lazy' />
                     <span className={`absolute top-2 right-2 ${product.tagColor} text-white text-xs px-2 py-1 rounded`}>
                         {product.tag}
                     </span>
@@ -520,8 +520,8 @@ const PetFriendlyTravelLanding = () => {
                                         <div className="flex flex-col md:flex-row items-center md:items-start">
                                             <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
                                                 <div className="relative">
-                                                    <img src={testimonial.avatar} alt={testimonial.name} className="w-20 h-20 rounded-full object-cover border-4 border-teal-500" />
-                                                    <img src={testimonial.petImage} alt={testimonial.petName} className="w-12 h-12 rounded-full object-cover border-2 border-white absolute -bottom-2 -right-2" />
+                                                    <img src={testimonial.avatar} alt={testimonial.name} className="w-20 h-20 rounded-full object-cover border-4 border-teal-500" loading='lazy' />
+                                                    <img src={testimonial.petImage} alt={testimonial.petName} className="w-12 h-12 rounded-full object-cover border-2 border-white absolute -bottom-2 -right-2" loading='lazy' />
                                                 </div>
                                             </div>
                                             <div>

@@ -21,21 +21,32 @@ const PurchaseSummary = () => {
         getTotalPrice 
     } = useCart();
 
+    // Formateador de precios 
+    const formatPrice = (price) => {
+        return new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(price || 0);
+    };
+
     // Calcular subtotales y desglose de precios
     const calculatePriceBreakdown = () => {
         const breakdown = {
-            subtotal: 0,
-            iva: 0,
-            total: 0
+          subtotal: 0,
+          iva: 0,
+          total: 0
         };
-
+      
         cart.forEach(item => {
-            breakdown.subtotal += item.price;
+          const price = item.price || 0;
+          breakdown.subtotal += price;
         });
-
+      
         breakdown.iva = breakdown.subtotal * 0.21;
         breakdown.total = breakdown.subtotal + breakdown.iva;
-
+      
         return breakdown;
     };
 
@@ -150,7 +161,7 @@ const PurchaseSummary = () => {
                                     <Trash2 size={16} />
                                 </button>
                             </div>
-                            <span className="font-semibold text-gray-900">€{item.price.toFixed(2)}</span>
+                            <span className="font-semibold text-gray-900">{formatPrice(item.price)}</span>
                         </div>
                     ))}
                 </div>
@@ -158,17 +169,17 @@ const PurchaseSummary = () => {
                 <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                         <span className="text-gray-600">Subtotal</span>
-                        <span className="font-semibold">€{priceBreakdown.subtotal.toFixed(2)}</span>
+                        <span className="font-semibold">{formatPrice(priceBreakdown.subtotal)}</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">IVA (21%)</span>
-                        <span className="font-semibold">€{priceBreakdown.iva.toFixed(2)}</span>
+                        <span className="font-semibold">{formatPrice(priceBreakdown.iva)}</span>
                     </div>
                 </div>
 
                 <div className="flex justify-between pt-4 border-t font-bold text-xl">
                     <span className="text-gray-800">Total a Pagar</span>
-                    <span className="text-emerald-700">€{priceBreakdown.total.toFixed(2)}</span>
+                    <span className="text-emerald-700">{formatPrice(priceBreakdown.total)}</span>
                 </div>
             </div>
         );

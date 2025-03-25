@@ -31,7 +31,7 @@ const FlightSearchComponent = () => {
             destination: 'Medellín',
             departureTime: '07:30',
             arrivalTime: '08:45',
-            price: 185.500,
+            price: 185500,
             availableSeats: 25,
             stops: 0
         },
@@ -43,7 +43,7 @@ const FlightSearchComponent = () => {
             destination: 'Cartagena',
             departureTime: '10:15',
             arrivalTime: '11:30',
-            price: 229.750,
+            price: 222750,
             availableSeats: 18,
             stops: 0
         },
@@ -55,7 +55,7 @@ const FlightSearchComponent = () => {
             destination: 'Cali',
             departureTime: '14:45',
             arrivalTime: '16:20',
-            price: 155.900,
+            price: 155900,
             availableSeats: 12,
             stops: 1
         },
@@ -67,7 +67,7 @@ const FlightSearchComponent = () => {
             destination: 'Bogotá',
             departureTime: '16:00',
             arrivalTime: '17:15',
-            price: 145.600,
+            price: 145600,
             availableSeats: 20,
             stops: 0
         },
@@ -79,7 +79,7 @@ const FlightSearchComponent = () => {
             destination: 'Medellín',
             departureTime: '11:30',
             arrivalTime: '12:45',
-            price: 199.900,
+            price: 199900,
             availableSeats: 35,
             stops: 0
         },
@@ -91,7 +91,7 @@ const FlightSearchComponent = () => {
             destination: 'Bucaramanga',
             departureTime: '09:00',
             arrivalTime: '10:30',
-            price: 175.500,
+            price: 175500,
             availableSeats: 22,
             stops: 0
         },
@@ -103,7 +103,7 @@ const FlightSearchComponent = () => {
             destination: 'San Andrés',
             departureTime: '13:45',
             arrivalTime: '15:15',
-            price: 265.750,
+            price: 265750,
             availableSeats: 15,
             stops: 0
         },
@@ -115,11 +115,20 @@ const FlightSearchComponent = () => {
             destination: 'Pereira',
             departureTime: '08:15',
             arrivalTime: '09:30',
-            price: 135.400,
+            price: 135400,
             availableSeats: 28,
             stops: 0
         }
     ];
+
+    const formatPriceToCOP = (price) => {
+        return new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(price);
+    };
 
     // Filter flights based on search criteria
     const filteredFlights = flightOptions.filter(flight =>
@@ -133,7 +142,8 @@ const FlightSearchComponent = () => {
             ...flight,
             departureDate: departureDate,
             passengers: passengers,
-            travelClass: travelClass
+            travelClass: travelClass,
+            priceFormatted: formatPriceToCOP(flight.price)
         };
 
         const result = addToCart(flightWithDetails);
@@ -151,7 +161,6 @@ const FlightSearchComponent = () => {
         }
     };
 
-    // Handle search submission
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         // Only show flights if a date is selected
@@ -307,7 +316,7 @@ const FlightSearchComponent = () => {
                                 </div>
 
                                 <div className="text-2xl font-bold text-green-600">
-                                    ${flight.price.toFixed(0)} COP
+                                    {formatPriceToCOP(flight.price)}
                                 </div>
 
                                 <button

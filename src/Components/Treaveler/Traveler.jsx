@@ -191,16 +191,16 @@ const PlanesturisticosPetFriendly = () => {
         {
             id: 1,
             destino: "Playa del Carmen, México",
-            imagen: "/api/placeholder/400/250",
+            imagen: "https://content.r9cdn.net/rimg/dimg/78/70/001b704a-city-15939-163e0a462f2.jpg?crop=true&width=1366&height=768&xhint=1556&yhint=1231",
             duracion: "5 días / 4 noches",
-            precio: "$850 USD",
+            precio: "$850.000 COP",
             mascotasPermitidas: ["Perros", "Gatos"],
             pesoMaximo: "25kg",
             transporte: {
                 vuelo: {
                     aerolinea: "Pet Airways",
                     politica: "Permite mascotas en cabina hasta 8kg, en bodega especial hasta 25kg",
-                    costoAdicional: "$120 USD por trayecto"
+                    costoAdicional: "$120.000 COP por trayecto"
                 },
                 terrestre: {
                     tipo: "Shuttle privado desde aeropuerto",
@@ -212,7 +212,7 @@ const PlanesturisticosPetFriendly = () => {
                 nombre: "Hotel Playa Azul & Pets",
                 estrellas: 4,
                 caracteristicas: ["Camas para mascotas", "Área de juegos", "Pet sitter disponible", "Menú especial para mascotas"],
-                costoAdicional: "$25 USD por noche por mascota"
+                costoAdicional: "$20.000 COP por noche por mascota"
             },
             actividades: [
                 "Tour por la playa canina exclusiva",
@@ -224,28 +224,28 @@ const PlanesturisticosPetFriendly = () => {
         {
             id: 2,
             destino: "Aspen, Colorado",
-            imagen: "/api/placeholder/400/250",
+            imagen: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/d4/f2/89/winter-exterior.jpg?w=1200&h=-1&s=1",
             duracion: "7 días / 6 noches",
-            precio: "$1200 USD",
+            precio: "$1'200.000 COP",
             mascotasPermitidas: ["Perros"],
             pesoMaximo: "30kg",
             transporte: {
                 vuelo: {
                     aerolinea: "American Airlines",
                     politica: "Permite mascotas en cabina hasta 9kg, en bodega hasta 30kg",
-                    costoAdicional: "$150 USD por trayecto"
+                    costoAdicional: "$150.000 COP por trayecto"
                 },
                 terrestre: {
                     tipo: "Alquiler de SUV pet-friendly",
                     politica: "Vehículos equipados con protectores y cinturones para mascotas",
-                    costoAdicional: "$80 USD total"
+                    costoAdicional: "$16.500 USD total"
                 }
             },
             hospedaje: {
                 nombre: "Aspen Mountain Lodge",
                 estrellas: 5,
                 caracteristicas: ["Habitaciones pet-friendly", "Servicio de paseo", "Spa para mascotas", "Kit de bienvenida para mascotas"],
-                costoAdicional: "$35 USD por noche por mascota"
+                costoAdicional: "$35.000 COP por noche por mascota"
             },
             actividades: [
                 "Senderismo en rutas dog-friendly",
@@ -257,16 +257,16 @@ const PlanesturisticosPetFriendly = () => {
         {
             id: 3,
             destino: "Ámsterdam, Holanda",
-            imagen: "/api/placeholder/400/250",
+            imagen: "https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/hotelier-images/98/8a/4b6b659230eb650c2224c85fe1a733e9ed1d0c61672aac9ccf4b5fd8fc9f.jpeg",
             duracion: "6 días / 5 noches",
-            precio: "$950 USD",
+            precio: "$950.000 COP",
             mascotasPermitidas: ["Perros", "Gatos", "Pequeños mamíferos"],
             pesoMaximo: "20kg",
             transporte: {
                 vuelo: {
                     aerolinea: "KLM",
                     politica: "Permite mascotas en cabina hasta 8kg, en bodega climatizada hasta 20kg",
-                    costoAdicional: "$100 USD por trayecto"
+                    costoAdicional: "$100.000 COP por trayecto"
                 },
                 terrestre: {
                     tipo: "Trenes y tranvías locales",
@@ -278,7 +278,7 @@ const PlanesturisticosPetFriendly = () => {
                 nombre: "Canal View Pet Hotel",
                 estrellas: 4,
                 caracteristicas: ["Terraza pet-friendly", "Parque privado", "Guardería canina", "Servicio veterinario de emergencia"],
-                costoAdicional: "$20 USD por noche por mascota"
+                costoAdicional: "$20.000 COP por noche por mascota"
             },
             actividades: [
                 "Tour en barco por los canales pet-friendly",

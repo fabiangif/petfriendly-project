@@ -13,6 +13,7 @@ import NormativasMascotasColombia from "./Components/Info/Info";
 import { CartProvider } from "./Context/cart";
 import CartComponent from "./Components/Cart/Cart";
 import FlightSearchComponent from "./Components/Flights/Flights";
+import ScrollToTop from "./scrollToTop";
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/cart" element={<CartComponent />}/>
           <Route path="/flights" element={<FlightSearchComponent />}/>
         </Routes>
+        <ScrollToTop />
         <Footer />
       </BrowserRouter>
     </CartProvider>
