@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Search, MapPin, Star, PawPrint, Coffee, Building, SquareParkingIcon, ShoppingBag, Stethoscope, Phone, Clock, DollarSign, CalendarRange, Check, X } from 'lucide-react';
+import HotelDatePicker from './datepicker';
+import { useCart } from '../../Context/cart';
 
 // Datos adicionales ficticios para cada tipo de lugar
 const getAdditionalInfo = (place) => {
-    if (!place || !place.name) return {}; // Verifica que el lugar exista y tenga nombre
-    
+    if (!place || !place.name) return {};
+
     const baseInfo = {
         contacto: `+${Math.floor(Math.random() * 900000000) + 100000000}`,
         horario: ['Lun-Vie: 9:00-20:00', 'Sáb-Dom: 10:00-18:00'],
@@ -62,6 +64,7 @@ const getAdditionalInfo = (place) => {
 };
 
 const PlaceDetail = () => {
+    const { addToCart } = useCart();
     const [searchParams] = useSearchParams()
     const place = searchParams.get('place')
     const [searchTerm, setSearchTerm] = useState('');
@@ -155,10 +158,10 @@ const PlaceDetail = () => {
 
     useEffect(() => {
         if (place) {
-            const foundPlace = places.find(p => 
+            const foundPlace = places.find(p =>
                 p.name.toLowerCase().includes(place.toLowerCase())
             );
-            
+
             if (foundPlace) {
                 setSelectedPlace(foundPlace);
                 setSearchTerm(foundPlace.name);
@@ -335,9 +338,12 @@ const PlaceDetail = () => {
                                         Reservaciones
                                     </h3>
                                     {additionalInfo.reservaOnline && (
-                                        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                                            Reservar ahora
-                                        </button>
+                                        <div>
+                                            <HotelDatePicker
+                                                selectedPlace={{ ...selectedPlace, ...additionalInfo }}
+                                                addToCart={addToCart}
+                                            />
+                                        </div>
                                     )}
                                 </div>
                             </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { PawPrint, MapPin, Info, MessageSquare, Menu, X, HouseIcon, PaperclipIcon } from "lucide-react";
+import { PawPrint, MapPin, Info, MessageSquare, Menu, X, HouseIcon, PaperclipIcon, ShoppingCart, Plane  } from "lucide-react";
+import CartComponent from "../Cart/Cart";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -60,6 +61,22 @@ export default function Navbar() {
                             >
                                 <MessageSquare className="h-5 w-5" />
                                 <span>Asistente</span>
+                            </Link>
+
+                            <Link
+                                to="/flights"
+                                className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-colors duration-200 ${hoverColor}`}
+                            >
+                                <Plane className="h-5 w-5" />
+                                <span>Vuelos</span>
+                            </Link>
+
+                            <Link
+                                to="/cart"
+                                className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-colors duration-200 ${hoverColor}`}
+                            >
+                                <ShoppingCart  className="h-5 w-5" />
+                                <span>Carrito</span>
                             </Link>
                         </nav>
 
@@ -127,6 +144,24 @@ export default function Navbar() {
                         >
                             <MessageSquare className="h-6 w-6" />
                             <span className="text-lg font-medium">Asistente Buddy</span>
+                        </Link>
+
+                        <Link
+                            to="/flights"
+                            onClick={() => setMenuOpen(false)}
+                            className={`flex items-center space-x-3 p-4 rounded-lg shadow transition-colors duration-200 bg-teal-400 text-white`}
+                        >
+                            <Plane className="h-6 w-6" />
+                            <span className="text-lg font-medium">Vuelos</span>
+                        </Link>
+
+                        <Link
+                            to="/cart"
+                            onClick={() => setMenuOpen(false)}
+                            className={`flex items-center space-x-3 p-4 rounded-lg shadow transition-colors duration-200 bg-teal-400 text-white`}
+                        >
+                            <ShoppingCart  className="h-6 w-6" />
+                            Carrito
                         </Link>
                     </nav>
                 </div>
