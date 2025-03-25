@@ -253,7 +253,7 @@ const PetFriendlyTravelLanding = () => {
             <HeroSection bg={bg} heroSlides={heroSlides} />
 
             {/* Stats Section */}
-            <section className="py-12 bg-white border-b">
+            <section className="py-12 bg-white border-b border-gray-200">
                 <div className="container mx-auto px-6">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                         <div>
