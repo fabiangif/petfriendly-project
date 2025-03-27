@@ -190,7 +190,7 @@ const PlanesturisticosPetFriendly = () => {
     const planesTuristicos = [
         {
             id: 1,
-            destino: "Playa del Carmen, México",
+            destino: "Playa Blanca, Santa Marta",
             imagen: "https://content.r9cdn.net/rimg/dimg/78/70/001b704a-city-15939-163e0a462f2.jpg?crop=true&width=1366&height=768&xhint=1556&yhint=1231",
             duracion: "5 días / 4 noches",
             precio: "$850.000 COP",
@@ -223,8 +223,8 @@ const PlanesturisticosPetFriendly = () => {
         },
         {
             id: 2,
-            destino: "Aspen, Colorado",
-            imagen: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/d4/f2/89/winter-exterior.jpg?w=1200&h=-1&s=1",
+            destino: "San Andres y Providencia",
+            imagen: "https://s3.amazonaws.com/rtvc-assets-senalcolombia.gov.co/s3fs-public/styles/amp_1200x675_16_9/public/field/image/San-andres-RTVC.jpg?itok=FVTxBlMN",
             duracion: "7 días / 6 noches",
             precio: "$1'200.000 COP",
             mascotasPermitidas: ["Perros"],
@@ -256,8 +256,8 @@ const PlanesturisticosPetFriendly = () => {
         },
         {
             id: 3,
-            destino: "Ámsterdam, Holanda",
-            imagen: "https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/hotelier-images/98/8a/4b6b659230eb650c2224c85fe1a733e9ed1d0c61672aac9ccf4b5fd8fc9f.jpeg",
+            destino: "Ciudad Amurallada, Cartagena",
+            imagen: "https://mlqfmr3rpryd.i.optimole.com/cb:JBSP.a525/w:auto/h:auto/q:100/ig:avif/https://cartagena-tours.co/wp-content/uploads/2023/12/Travelocity-Cartagena-Destacada.Galeria.jpg",
             duracion: "6 días / 5 noches",
             precio: "$950.000 COP",
             mascotasPermitidas: ["Perros", "Gatos", "Pequeños mamíferos"],
