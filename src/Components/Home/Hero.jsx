@@ -55,6 +55,7 @@ const HeroSection = ({ heroSlides }) => {
                         src={heroSlides[activeSlide].image}
                         alt={`Slide ${activeSlide + 1} background`}
                         className="w-full h-full object-cover"
+                        loading='eager'
                     />
                 </motion.div>
             </AnimatePresence>

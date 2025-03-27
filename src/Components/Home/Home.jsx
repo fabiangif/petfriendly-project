@@ -4,6 +4,7 @@ import bg from "../../assets/images/bg.png"
 import bg3 from "../../assets/images/bg3.png"
 import bg2 from '../../assets/images/bg2.png'
 import HeroSection from './Hero';
+import { Link } from 'react-router-dom';
 
 const PetFriendlyTravelLanding = () => {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -22,7 +23,7 @@ const PetFriendlyTravelLanding = () => {
             description: "Recorre las ciudades más amigables con mascotas en Europa con alojamientos y transportes especializados.",
             price: 11499999,
             rating: 8999000,
-            image: "/api/placeholder/300/300",
+            image: "https://plus.unsplash.com/premium_photo-1661919210043-fd847a58522d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGFyJUMzJUFEc3xlbnwwfHwwfHx8MA%3D%3D",
             tag: "Destacado",
             tagColor: "bg-yellow-500"
         },
@@ -34,7 +35,7 @@ const PetFriendlyTravelLanding = () => {
             price: 1099000,
             oldPrice: 899000,
             rating: 5,
-            image: "/api/placeholder/300/300",
+            image: "https://colombiaconexion.com/wp-content/uploads/2022/12/1230perrosplaya-1107925-1200x540.jpg",
             tag: "Oferta",
             tagColor: "bg-red-500"
         },
@@ -45,7 +46,7 @@ const PetFriendlyTravelLanding = () => {
             description: "Aventuras en la montaña con rutas especiales para mascotas y alojamientos rurales equipados.",
             price: 1699000,
             rating: 1399000,
-            image: "/api/placeholder/300/300",
+            image: "https://images.memphistours.com/large/d474346f08dea4bfcbf04e29ad98f546.jpg",
             tag: "Eco",
             tagColor: "bg-green-500"
         },
@@ -56,7 +57,7 @@ const PetFriendlyTravelLanding = () => {
             description: "Explora las ciudades más pet-friendly con guías especializados y acceso a todas las atracciones.",
             price: 1699000,
             rating: 1399000,
-            image: "/api/placeholder/300/300",
+            image: "https://media.cntraveller.com/photos/611bec20a954a4e571f6f230/16:9/w_2580,c_limit/europe.jpg",
             tag: "Nuevo",
             tagColor: "bg-purple-500"
         }
@@ -306,12 +307,10 @@ const PetFriendlyTravelLanding = () => {
                         <p className="text-lg">Encuentra aerolíneas que permiten viajar con tu mascota</p>
                     </div>
                     <div className="flex w-full md:w-auto">
-                        <input type="text" placeholder="Origen" className="px-4 py-2 w-full md:w-32 focus:outline-none text-gray-700" />
-                        <input type="text" placeholder="Destino" className="px-4 py-2 w-full md:w-32 ml-2 focus:outline-none text-gray-700" />
-                        <button className="bg-gray-800 hover:bg-gray-900 px-6 py-2 ml-2 transition flex items-center">
+                        <Link to="/flights" className="bg-gray-800 hover:bg-gray-900 px-6 py-2 ml-2 transition flex items-center">
                             <Search size={18} className="mr-1" />
                             <span>Buscar</span>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>
