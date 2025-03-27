@@ -72,8 +72,8 @@ const PetFriendlyTravelLanding = () => {
             petType: "Labrador de 3 años",
             comment: "¡Increíble experiencia volando con Max! Todo el proceso fue sencillo, desde la reserva hasta el embarque. El personal de la aerolínea fue muy atento con nosotros y con Max.",
             rating: 5,
-            avatar: "/api/placeholder/60/60",
-            petImage: "/api/placeholder/80/80"
+            avatar: "https://media.istockphoto.com/id/1432226243/es/foto/feliz-joven-de-color-sonriendo-a-la-c%C3%A1mara-en-un-estudio.jpg?s=612x612&w=0&k=20&c=WZ13cFaGQF7Y062lW5RqoKSp47kdqmvb3EJvy5NZhV8=",
+            petImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Labrador_Retriever_%281210559%29.jpg/1200px-Labrador_Retriever_%281210559%29.jpg"
         },
         {
             id: 2,
@@ -82,8 +82,8 @@ const PetFriendlyTravelLanding = () => {
             petType: "Gato Persa de 2 años",
             comment: "Viajar con gatos suele ser estresante, pero gracias a PetTravel todo fue mucho más fácil. Los hoteles tenían todo lo necesario para Luna y el vuelo fue tranquilo.",
             rating: 5,
-            avatar: "/api/placeholder/60/60",
-            petImage: "/api/placeholder/80/80"
+            avatar: "https://img.freepik.com/fotos-premium/concepto-felicidad-emociones-personas-hombre-riendo_380164-89168.jpg",
+            petImage: "https://www.purina.es/sites/default/files/styles/ttt_image_510/public/2024-02/sitesdefaultfilesstylessquare_medium_440x440public2022-06Persian20Long20Hair.2.jpg?itok=qzNV_HuV"
         },
         {
             id: 3,
@@ -92,8 +92,8 @@ const PetFriendlyTravelLanding = () => {
             petType: "Bulldog de 4 años",
             comment: "Nuestro viaje a las montañas con Rocky fue perfecto. El transporte, el alojamiento y todas las actividades estaban pensadas para incluir a nuestro perro.",
             rating: 5,
-            avatar: "/api/placeholder/60/60",
-            petImage: "/api/placeholder/80/80"
+            avatar: "https://img.freepik.com/fotos-gratis/uma-garota-com-um-sorriso-positivo_53876-144770.jpg",
+            petImage: "https://cdn.agenciasinc.es/var/ezwebin_site/storage/images/_aliases/img_1col/noticias/cientificos-britanicos-piden-modificar-la-cria-del-bulldog-ingles-por-motivos-de-salud-animal/9612428-1-esl-MX/Cientificos-britanicos-piden-modificar-la-cria-del-bulldog-ingles-por-motivos-de-salud-animal.jpg"
         }
     ];
 
@@ -375,9 +375,9 @@ const PetFriendlyTravelLanding = () => {
                     <div className="flex flex-col md:flex-row items-center">
                         <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12">
                             <span className="text-teal-500 font-semibold text-sm uppercase tracking-wider">Destino destacado</span>
-                            <h2 className="text-3xl font-bold mt-2 mb-4 text-gray-800">Ámsterdam: Ciudad Pet-Friendly por excelencia</h2>
+                            <h2 className="text-3xl font-bold mt-2 mb-4 text-gray-800">Cartagena: Ciudad Pet-Friendly por excelencia</h2>
                             <p className="text-gray-600 mb-6">
-                                Ámsterdam es conocida por su actitud acogedora hacia las mascotas. Con parques, cafeterías, transporte público y alojamientos que reciben a tus amigos peludos con los brazos abiertos.
+                                Cartagena es conocida por su actitud acogedora hacia las mascotas. Con parques, cafeterías, transporte público y alojamientos que reciben a tus amigos peludos con los brazos abiertos.
                             </p>
                             <ul className="space-y-2 mb-6">
                                 <li className="flex items-center">
@@ -399,15 +399,15 @@ const PetFriendlyTravelLanding = () => {
                             </ul>
                             <button className="bg-teal-500 hover:bg-teal-600 text-white py-3 px-8 rounded-lg transition inline-flex items-center">
                                 <Globe size={18} className="mr-2" />
-                                <span>Explorar paquetes a Ámsterdam</span>
+                                <span>Explorar paquetes a Cartagena</span>
                             </button>
                         </div>
                         <div className="md:w-1/2">
                             <div className="grid grid-cols-2 gap-4">
-                                <img src="/api/placeholder/300/300" alt="Amsterdam canals" className="rounded-lg shadow-md w-full h-full object-cover" />
-                                <img src="/api/placeholder/300/300" alt="Amsterdam park with dog" className="rounded-lg shadow-md w-full h-full object-cover mt-6" />
-                                <img src="/api/placeholder/300/300" alt="Amsterdam cafe with pets" className="rounded-lg shadow-md w-full h-full object-cover" />
-                                <img src="/api/placeholder/300/300" alt="Amsterdam pet-friendly hotel" className="rounded-lg shadow-md w-full h-full object-cover mt-6" />
+                                <img src="https://www.playasdecolombia.info/wp-content/uploads/2024/03/la_playa_de_bocagrande_colombia_1.jpg" alt="Amsterdam canals" className="rounded-lg shadow-md w-full h-full object-cover" loading='lazy' />
+                                <img src="https://i0.wp.com/travelandleisure-es.com/wp-content/uploads/2024/01/Cartagena_Colombia.jpg?fit=2258%2C1717&ssl=1" alt="Amsterdam park with dog" className="rounded-lg shadow-md w-full h-full object-cover mt-6" loading='lazy'/>
+                                <img src="https://blog.properati.com.co/wp-content/uploads/2021/02/GettyImages-1148861090-1024x681.jpg" alt="Amsterdam cafe with pets" className="rounded-lg shadow-md w-full h-full object-cover" loading='lazy'/>
+                                <img src="https://turismo.encolombia.com/wp-content/uploads/2019/12/Playas-en-Cartagena.webp" alt="Amsterdam pet-friendly hotel" className="rounded-lg shadow-md w-full h-full object-cover mt-6" loading='lazy'/>
                             </div>
                         </div>
                     </div>
@@ -499,7 +499,7 @@ const PetFriendlyTravelLanding = () => {
                         </button>
                     </div>
                     <div className="md:w-1/2 flex justify-center">
-                        <img src="/api/placeholder/500/300" alt="Mascota viajando" className="rounded-lg shadow-lg max-w-full" />
+                        <img src="https://likesolidaria.com.co/generacion-like/uploads/images/2023/02/image_750x_63e5838bbc0a8.jpg" alt="Mascota viajando" className="rounded-lg shadow-lg max-w-full" loading='lazy'/>
                     </div>
                 </div>
             </section>
