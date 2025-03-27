@@ -1,6 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Dog, Send, Image, Link } from 'lucide-react';
 
+
+const QuickQuestionButton = ({ text, onClick }) => (
+  <button 
+    onClick={() => onClick(text)}
+    className="bg-teal-50 text-teal-600 px-3 py-2 rounded-full text-sm hover:bg-teal-100 transition-colors flex items-center space-x-1"
+  >
+    <Sparkles className="h-4 w-4" />
+    <span>{text}</span>
+  </button>
+);
+
 const ChatMessage = ({ msg, primaryColor }) => (
   <div className={`flex ${msg.isBot ? '' : 'justify-end'}`}>
     <div className={`max-w-xs md:max-w-md p-3 rounded-lg ${msg.isBot ? 'bg-gray-100 text-gray-800' : `${primaryColor} text-white`}`}>
@@ -681,8 +692,9 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
   };
 
   return (
-    <div className="flex flex-col h-full max-w-md mx-auto bg-white rounded-lg shadow p-4">
-      <div className="flex items-center border-b pb-2 mb-4">
+    <div className="flex justify-center items-center h-[70vh]">
+      <div className="flex flex-col h-full max-w-md mx-auto bg-white rounded-lg shadow p-4">
+      <div className="flex items-center border-b pb-2 mb-4 justify-center">
         <MessageSquare className="h-6 w-6 mr-2 text-teal-500" />
         <h1 className="text-lg font-semibold text-gray-800">Chat Pet-Friendly</h1>
       </div>
@@ -711,6 +723,7 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
           <Send className="h-5 w-5" />
         </button>
       </div>
+    </div>
     </div>
   );
 };
