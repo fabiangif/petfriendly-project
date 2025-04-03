@@ -18,46 +18,46 @@ const PetFriendlyTravelLanding = () => {
     const travelPackages = [
         {
             id: 1,
-            name: "Europa Pet-Friendly",
-            category: "Internacional",
+            name: "San Andres y Providencia",
+            category: "Nacional",
             description: "Recorre las ciudades más amigables con mascotas en Europa con alojamientos y transportes especializados.",
-            price: 11499999,
-            rating: 8999000,
-            image: "https://plus.unsplash.com/premium_photo-1661919210043-fd847a58522d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGFyJUMzJUFEc3xlbnwwfHwwfHx8MA%3D%3D",
+            price: 1200000,
+            rating: 5,
+            image: "https://s3.amazonaws.com/rtvc-assets-senalcolombia.gov.co/s3fs-public/styles/amp_1200x675_16_9/public/field/image/San-andres-RTVC.jpg?itok=FVTxBlMN",
             tag: "Destacado",
             tagColor: "bg-yellow-500"
         },
         {
             id: 2,
-            name: "Escapada Playa & Mascotas",
+            name: "Playa Blanca, Santa Marta",
             category: "Nacional",
             description: "Descubre las mejores playas donde tu mascota es bienvenida, con hoteles y actividades especiales.",
-            price: 1099000,
-            oldPrice: 899000,
+            price: 850000,
+            oldPrice: 999900,
             rating: 5,
-            image: "https://colombiaconexion.com/wp-content/uploads/2022/12/1230perrosplaya-1107925-1200x540.jpg",
+            image: "https://content.r9cdn.net/rimg/dimg/78/70/001b704a-city-15939-163e0a462f2.jpg?crop=true&width=1366&height=768&xhint=1556&yhint=1231",
             tag: "Oferta",
             tagColor: "bg-red-500"
         },
         {
             id: 3,
-            name: "Montañas Pet-Friendly",
-            category: "Aventura",
+            name: "Ciudad Amurallada, Cartagena",
+            category: "Nacional",
             description: "Aventuras en la montaña con rutas especiales para mascotas y alojamientos rurales equipados.",
-            price: 1699000,
-            rating: 1399000,
-            image: "https://images.memphistours.com/large/d474346f08dea4bfcbf04e29ad98f546.jpg",
+            price: 950000,
+            rating: 5,
+            image: "https://mlqfmr3rpryd.i.optimole.com/cb:JBSP.a525/w:auto/h:auto/q:100/ig:avif/https://cartagena-tours.co/wp-content/uploads/2023/12/Travelocity-Cartagena-Destacada.Galeria.jpg",
             tag: "Eco",
             tagColor: "bg-green-500"
         },
         {
             id: 4,
-            name: "City Break con Mascota",
-            category: "Urbano",
+            name: "Comuna 13, Medellin",
+            category: "Nacional",
             description: "Explora las ciudades más pet-friendly con guías especializados y acceso a todas las atracciones.",
-            price: 1699000,
-            rating: 1399000,
-            image: "https://media.cntraveller.com/photos/611bec20a954a4e571f6f230/16:9/w_2580,c_limit/europe.jpg",
+            price: 1500000,
+            rating: 5,
+            image: "https://cdn.getyourguide.com/img/tour/5fe95e65e3ee2e21.jpeg/146.jpg",
             tag: "Nuevo",
             tagColor: "bg-purple-500"
         }
@@ -241,10 +241,6 @@ const PetFriendlyTravelLanding = () => {
                         </div>
                         <RatingStars rating={product.rating} />
                     </div>
-                    <button className="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-lg transition flex items-center justify-center">
-                        <Calendar size={18} className="mr-2" />
-                        Reservar ahora
-                    </button>
                 </div>
             </div>
         );
@@ -330,10 +326,10 @@ const PetFriendlyTravelLanding = () => {
                     </div>
 
                     <div className="text-center mt-12">
-                        <a href="#" className="bg-white hover:bg-gray-50 text-teal-500 border border-teal-500 font-bold py-3 px-8 rounded-full transition inline-flex items-center">
+                        <Link to="/traveler" className="bg-white hover:bg-gray-50 text-teal-500 border border-teal-500 font-bold py-3 px-8 rounded-full transition inline-flex items-center">
                             <span>Ver todos los paquetes</span>
                             <ChevronRight size={20} className="ml-2" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>

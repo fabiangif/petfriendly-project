@@ -5,10 +5,10 @@ export const CartContext = createContext();
 // Función para limpiar y convertir precios
 const cleanPrice = (price) => {
   if (typeof price === 'number') return price;
-  
+
   // Eliminar símbolo de $ y puntos de separación de miles
   const cleanedPrice = price.replace('$', '').replace(/\./g, '').trim();
-  
+
   // Convertir a número, reemplazando la coma decimal con punto
   return parseFloat(cleanedPrice.replace(',', '.'));
 };
@@ -24,6 +24,8 @@ export const CartProvider = ({ children }) => {
     }
   });
 
+  console.log(cart)
+
   // Guardar el carrito en localStorage cada vez que cambie
   useEffect(() => {
     try {
@@ -32,6 +34,25 @@ export const CartProvider = ({ children }) => {
       console.error('Error al guardar el carrito en localStorage:', error);
     }
   }, [cart]);
+
+  const validateTourPlanItem = (item) => {
+    if (item.type !== 'tourPlan') {
+      console.error('El item debe ser un plan turístico');
+      return false;
+    }
+
+    if (!item.destino) {
+      console.error('El plan debe tener un destino');
+      return false;
+    }
+
+    if (!item.price || cleanPrice(item.price) <= 0) {
+      console.error('El plan debe tener un precio válido');
+      return false;
+    }
+
+    return true;
+  };
 
   const addToCart = (item) => {
     // Validar si ya existe un paquete completo
@@ -67,15 +88,52 @@ export const CartProvider = ({ children }) => {
         }
         break;
 
+      case 'tourPlan':
+        const hasTourPlans = cart.some(cartItem => cartItem.type === 'tourPlan');
+        if (hasTourPlans) {
+          console.warn('Ya existe un plan turístico en el carrito.');
+          return false;
+        }
+
+        if (!validateTourPlanItem(item)) {
+          return false;
+        }
+
+        break;
+
       default:
         console.error('Tipo de item no válido');
         return false;
     }
 
+    const processTourPlanItem = (item) => {
+      // Corregido: Procesar el precio correctamente
+      let price;
+      if (typeof item.price === 'string') {
+        price = cleanPrice(item.price);
+      } else if (typeof item.price === 'number') {
+        price = item.price;
+      } else {
+        price = 0; // Valor por defecto si no hay precio válido
+      }
+
+      return {
+        ...item,
+        id: item.id || `tour-${Date.now()}`,
+        type: 'tourPlan',
+        price: price,
+        name: item.destino,
+        location: item.destino,
+        duration: item.duracion
+      };
+    };
+
     // Calcular precio y noches para hoteles
-    const processedItem = item.type === 'hotel' 
-      ? processHotelItem(item) 
-      : { ...item, price: item.price || 0 };
+    const processedItem = item.type === 'hotel'
+      ? processHotelItem(item)
+      : item.type === 'tourPlan'
+        ? processTourPlanItem(item)
+        : { ...item, price: item.price || 0 };
 
     // Agregar al carrito
     setCart(prevCart => [...prevCart, processedItem]);
@@ -84,16 +142,16 @@ export const CartProvider = ({ children }) => {
 
   // Procesar item de hotel con cálculos de noches y precio
   const processHotelItem = (item) => {
-    const nights = item.startDate && item.endDate 
-      ? Math.ceil((new Date(item.endDate) - new Date(item.startDate)) / (1000 * 60 * 60 * 24)) 
+    const nights = item.startDate && item.endDate
+      ? Math.ceil((new Date(item.endDate) - new Date(item.startDate)) / (1000 * 60 * 60 * 24))
       : 1;
-    
+
     // Limpiar y calcular precio por noche
     const pricePerNight = cleanPrice(item.precioNoche);
     const price = nights * pricePerNight;
 
     // Manejar cargo adicional por mascota si existe
-    const petSurcharge = item.cargoAdicionalMascota 
+    const petSurcharge = item.cargoAdicionalMascota
       ? cleanPrice(item.cargoAdicionalMascota) * (item.pets || 0)
       : 0;
 

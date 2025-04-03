@@ -1,32 +1,46 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, Dog, Send, Image, Link } from 'lucide-react';
+import { MessageSquare, Dog, Send, Image, Link, X, Paperclip, Sparkles } from 'lucide-react';
 
 
 const QuickQuestionButton = ({ text, onClick }) => (
-  <button 
+  <button
     onClick={() => onClick(text)}
-    className="bg-teal-50 text-teal-600 px-3 py-2 rounded-full text-sm hover:bg-teal-100 transition-colors flex items-center space-x-1"
+    className="bg-teal-50 text-teal-600 px-3 py-1.5 rounded-full text-xs hover:bg-teal-100 transition-colors flex items-center space-x-1"
   >
-    <Sparkles className="h-4 w-4" />
+    <Sparkles className="h-3 w-3 mr-1" />
     <span>{text}</span>
   </button>
 );
 
 const ChatMessage = ({ msg, primaryColor }) => (
-  <div className={`flex ${msg.isBot ? '' : 'justify-end'}`}>
-    <div className={`max-w-xs md:max-w-md p-3 rounded-lg ${msg.isBot ? 'bg-gray-100 text-gray-800' : `${primaryColor} text-white`}`}>
+  <div className={`flex ${msg.isBot ? '' : 'justify-end'} animate-fadeIn`}>
+    <div className={`max-w-xs md:max-w-md p-3 rounded-2xl ${msg.isBot
+      ? 'bg-gray-50 text-gray-800 shadow-sm'
+      : `${primaryColor} text-white shadow-sm`} transition-all`}
+    >
       {msg.isBot && (
-        <div className="flex items-center mb-1">
-          <Dog className="h-4 w-4 mr-1 text-teal-500" />
-          <span className="text-xs font-medium text-teal-500">Buddy</span>
+        <div className="flex items-center mb-1.5">
+          <div className="bg-teal-50 rounded-full p-1 mr-2">
+            <Dog className="h-3 w-3 text-teal-500" />
+          </div>
+          <span className="text-xs font-medium text-teal-600">Buddy</span>
         </div>
       )}
-      <p className="whitespace-pre-line">{msg.text}</p>
-      {msg.image && <img src={msg.image} alt="Imagen relacionada" className="mt-2 rounded-lg" />}
+      <p className="whitespace-pre-line text-sm">{msg.text}</p>
+      {msg.image && (
+        <div className="mt-2 overflow-hidden rounded-lg">
+          <img src={msg.image} alt="Imagen relacionada" className="w-full object-cover" />
+        </div>
+      )}
       {msg.link && (
-        <a href={msg.link} target="_blank" rel="noopener noreferrer" className="mt-2 text-blue-500 hover:underline flex items-center">
-          <Link className="h-4 w-4 mr-1" />
-          Ver más
+        <a
+          href={msg.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`mt-2 ${msg.isBot ? 'text-teal-600' : 'text-teal-100'} hover:underline flex items-center text-xs`}
+        >
+          <Link className="h-3 w-3 mr-1" />
+          Ver más información
         </a>
       )}
     </div>
@@ -42,7 +56,11 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
     },
   ]);
 
+  const [showSuggestions, setShowSuggestions] = useState(true);
+    const [isTyping, setIsTyping] = useState(false);
+
   const messagesEndRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -426,58 +444,58 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
   // Mapa de sinónimos y categorías
   const categoryMap = {
     // Categoría hoteles
-    alojamiento: 'hotel', hospedaje: 'hotel', hostal: 'hotel', posada: 'hotel', 
+    alojamiento: 'hotel', hospedaje: 'hotel', hostal: 'hotel', posada: 'hotel',
     cabana: 'hotel', cabaña: 'hotel', resort: 'hotel', apartamento: 'hotel',
     airbnb: 'hotel', habitacion: 'hotel', habitación: 'hotel', hospedar: 'hotel',
     dormir: 'hotel', estadia: 'hotel', estancia: 'hotel', quedarme: 'hotel',
-    
+
     // Categoría restaurantes
-    restaurante: 'restaurante', comida: 'restaurante', comer: 'restaurante', 
+    restaurante: 'restaurante', comida: 'restaurante', comer: 'restaurante',
     cafeteria: 'restaurante', cafetería: 'restaurante', cafe: 'restaurante', café: 'restaurante',
     bar: 'restaurante', terraza: 'restaurante', almorzar: 'restaurante', cenar: 'restaurante',
     desayunar: 'restaurante', menu: 'restaurante', alimentacion: 'restaurante',
-    
+
     // Categoría parques
     parque: 'parque', pasear: 'parque', caminar: 'parque', jugar: 'parque',
     correr: 'parque', ejercicio: 'parque', jardin: 'parque', jardín: 'parque',
     verde: 'parque', aire: 'parque', recreacion: 'parque', recreación: 'parque',
     espacio: 'parque',
-    
+
     // Categoría playas
     playa: 'playa', mar: 'playa', arena: 'playa', costa: 'playa',
     oceano: 'playa', océano: 'playa', maritimo: 'playa', marítimo: 'playa',
     bahia: 'playa', bahía: 'playa', nadar: 'playa', balneario: 'playa',
-    
+
     // Categoría avión
     avion: 'avion', avión: 'avion', aerolinea: 'avion', aerolínea: 'avion',
     volar: 'avion', vuelo: 'avion', aereo: 'avion', aéreo: 'avion',
     aeropuerto: 'avion', avianca: 'avion', latam: 'avion', wingo: 'avion',
-    
+
     // Categoría coche
     coche: 'coche', auto: 'coche', carro: 'coche', automovil: 'coche',
     automóvil: 'coche', conducir: 'coche', manejar: 'coche', conduccion: 'coche',
     conducción: 'coche', carretera: 'coche', vehiculo: 'coche', vehículo: 'coche',
     viaje: 'coche', ruta: 'coche',
-    
+
     // Categoría transporte público
     taxi: 'transporte_publico', bus: 'transporte_publico', buseta: 'transporte_publico',
     transmilenio: 'transporte_publico', metro: 'transporte_publico', tranvia: 'transporte_publico',
     tranvía: 'transporte_publico', colectivo: 'transporte_publico', transporte: 'transporte_publico',
     publico: 'transporte_publico', público: 'transporte_publico', uber: 'transporte_publico',
     didi: 'transporte_publico', cabify: 'transporte_publico', beat: 'transporte_publico',
-    
+
     // Categoría veterinarios
     veterinario: 'veterinario', vet: 'veterinario', clinica: 'veterinario',
     clínica: 'veterinario', hospital: 'veterinario', médico: 'veterinario',
     medico: 'veterinario', salud: 'veterinario', emergencia: 'veterinario',
     enfermedad: 'veterinario', dolor: 'veterinario', tratamiento: 'veterinario',
-    
+
     // Categoría tiendas
     tienda: 'tienda', comprar: 'tienda', accesorios: 'tienda', comida: 'tienda',
     alimento: 'tienda', productos: 'tienda', juguetes: 'tienda', collar: 'tienda',
     correa: 'tienda', ropa: 'tienda', cama: 'tienda', boutique: 'tienda',
-    supermercado: 'tienda', petshop: 'tienda', shopping: 'tienda', 
-    
+    supermercado: 'tienda', petshop: 'tienda', shopping: 'tienda',
+
     // Categoría documentos
     documentos: 'documentos', papeles: 'documentos', requisitos: 'documentos',
     carnet: 'documentos', vacunas: 'documentos', certificado: 'documentos',
@@ -485,31 +503,31 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
     legal: 'documentos', registros: 'documentos', frontera: 'documentos',
     migracion: 'documentos', migración: 'documentos', normas: 'documentos',
     regulacion: 'documentos', regulación: 'documentos',
-    
+
     // Categoría consejos
     consejos: 'consejos', recomendaciones: 'consejos', tips: 'consejos',
     sugerencia: 'consejos', idea: 'consejos', ayuda: 'consejos', guia: 'consejos',
     guía: 'consejos', información: 'consejos', informacion: 'consejos', tutorial: 'consejos',
-    
+
     // Categoría ciudades
     ciudad: 'ciudades_principales', bogota: 'ciudades_principales', bogotá: 'ciudades_principales',
     medellin: 'ciudades_principales', medellín: 'ciudades_principales', cali: 'ciudades_principales',
     cartagena: 'ciudades_principales', barranquilla: 'ciudades_principales', santa: 'ciudades_principales',
     marta: 'ciudades_principales', pereira: 'ciudades_principales', manizales: 'ciudades_principales',
     bucaramanga: 'ciudades_principales', villavicencio: 'ciudades_principales', destino: 'ciudades_principales',
-    
+
     // Categoría actividades
     actividad: 'actividades', actividades: 'actividades', hacer: 'actividades',
     diversion: 'actividades', diversión: 'actividades', juego: 'actividades',
     entretenimiento: 'actividades', ocio: 'actividades', excursión: 'actividades',
     excursion: 'actividades', tour: 'actividades', paseo: 'actividades', senderismo: 'actividades',
     hiking: 'actividades', caminata: 'actividades', kayak: 'actividades', barco: 'actividades',
-    
+
     // Categoría eventos
     evento: 'eventos', eventos: 'eventos', festival: 'eventos', feria: 'eventos',
     exposicion: 'eventos', exposición: 'eventos', concurso: 'eventos', muestra: 'eventos',
     exhibicion: 'eventos', exhibición: 'eventos', celebracion: 'eventos', celebración: 'eventos',
-    
+
     // Categoría internacional
     internacional: 'internacional', extranjero: 'internacional', europa: 'internacional',
     usa: 'internacional', estados: 'internacional', unidos: 'internacional', paises: 'internacional',
@@ -518,24 +536,31 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
     méxico: 'internacional', peru: 'internacional', perú: 'internacional', ecuador: 'internacional',
     brasil: 'internacional', argentina: 'internacional', venezuela: 'internacional', panama: 'internacional',
     panamá: 'internacional',
-    
+
     // Categoría emergencias
     emergencia: 'emergencias', emergencias: 'emergencias', urgencia: 'emergencias',
     // Categoría emergencias (continued)
     urgencia: 'emergencias', accidente: 'emergencias', herida: 'emergencias',
-    ayuda: 'emergencias', ambulancia: 'emergencias', hospital: 'emergencias', 
+    ayuda: 'emergencias', ambulancia: 'emergencias', hospital: 'emergencias',
     problema: 'emergencias', peligro: 'emergencias', socorro: 'emergencias',
-    
+
     // Categoría alergias
-    alergia: 'alergias', alergias: 'alergias', reacción: 'alergias', 
+    alergia: 'alergias', alergias: 'alergias', reacción: 'alergias',
     reaccion: 'alergias', sensibilidad: 'alergias', intolerancia: 'alergias',
     sintoma: 'alergias', síntoma: 'alergias', picazón: 'alergias', picazon: 'alergias',
-    
+
     // Categoría seguros
     seguro: 'seguros', seguros: 'seguros', cobertura: 'seguros', póliza: 'seguros',
     poliza: 'seguros', aseguradora: 'seguros', protección: 'seguros', proteccion: 'seguros',
     asistencia: 'seguros', beneficio: 'seguros'
   };
+
+  const quickSuggestions = [
+    "Hoteles pet-friendly en Bogotá",
+    "Restaurantes para ir con perros",
+    "Parques para mascotas en Medellín",
+    "¿Qué playas permiten perros?"
+  ];
 
   const handleSendMessage = () => {
     if (chatInput.trim() === '') return;
@@ -553,23 +578,23 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
   const processUserInput = (input) => {
     // Normalizar el texto del usuario
     const normalizedInput = normalizeText(input);
-    
+
     // Detectar categorías en el input del usuario
     const detectedCategories = new Set();
-    
+
     // Recorrer el mapa de categorías para detectar coincidencias
     Object.keys(categoryMap).forEach(keyword => {
       if (normalizedInput.includes(keyword)) {
         detectedCategories.add(categoryMap[keyword]);
       }
     });
-    
+
     // Si no se detectaron categorías específicas pero hay palabras clave generales
     if (detectedCategories.size === 0) {
-      if (normalizedInput.includes('viajar') || 
-          normalizedInput.includes('viaje') || 
-          normalizedInput.includes('turismo') ||
-          normalizedInput.includes('vacaciones')) {
+      if (normalizedInput.includes('viajar') ||
+        normalizedInput.includes('viaje') ||
+        normalizedInput.includes('turismo') ||
+        normalizedInput.includes('vacaciones')) {
         // Proporcionar respuesta general sobre viajes con mascotas
         setTimeout(() => {
           setChatMessages(prevMessages => [
@@ -582,12 +607,12 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
         }, 1000);
         return;
       }
-      
+
       // Si el usuario saluda o inicia conversación
-      if (normalizedInput.includes('hola') || 
-          normalizedInput.includes('buenos') || 
-          normalizedInput.includes('buenas') ||
-          normalizedInput.includes('saludos')) {
+      if (normalizedInput.includes('hola') ||
+        normalizedInput.includes('buenos') ||
+        normalizedInput.includes('buenas') ||
+        normalizedInput.includes('saludos')) {
         setTimeout(() => {
           setChatMessages(prevMessages => [
             ...prevMessages,
@@ -599,7 +624,7 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
         }, 1000);
         return;
       }
-      
+
       // Si ninguna de las anteriores condiciones se cumple
       setTimeout(() => {
         setChatMessages(prevMessages => [
@@ -612,10 +637,10 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
       }, 1000);
       return;
     }
-    
+
     // Convertir el Set a Array para poder trabajar con él
     const categoryArray = Array.from(detectedCategories);
-    
+
     // Procesar cada categoría detectada y enviar respuestas
     categoryArray.forEach((category, index) => {
       setTimeout(() => {
@@ -626,7 +651,7 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
             // Buscar si se menciona alguna ciudad específica
             const ciudades = petTravelColombia.ciudades_principales.map(c => c.ciudad.toLowerCase());
             let ciudadMencionada = null;
-            
+
             for (const ciudad of ciudades) {
               if (normalizedInput.includes(normalizeText(ciudad))) {
                 ciudadMencionada = petTravelColombia.ciudades_principales.find(
@@ -635,7 +660,7 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
                 break;
               }
             }
-            
+
             if (ciudadMencionada) {
               // Respuesta específica para la ciudad mencionada
               setChatMessages(prevMessages => [
@@ -658,15 +683,15 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
           } else {
             // Para otras categorías, seleccionar aleatoriamente 2 recomendaciones
             const randomSelection = [...petTravelColombia[category]].sort(() => 0.5 - Math.random()).slice(0, 2);
-            
+
             let responseText = `Aquí tienes algunas recomendaciones de ${category.replace('_', ' ')} pet-friendly:\n\n`;
-            
+
             randomSelection.forEach(item => {
               responseText += `• ${item.text}\n`;
             });
-            
+
             responseText += `\n¿Te gustaría más información sobre ${category.replace('_', ' ')} pet-friendly?`;
-            
+
             setChatMessages(prevMessages => [
               ...prevMessages,
               {
@@ -691,39 +716,96 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
     });
   };
 
+  const handleQuickQuestion = (question) => {
+    setChatInput(question);
+    inputRef.current?.focus();
+  };
+
   return (
     <div className="flex justify-center items-center h-[70vh]">
-      <div className="flex flex-col h-full max-w-md mx-auto bg-white rounded-lg shadow p-4">
-      <div className="flex items-center border-b pb-2 mb-4 justify-center">
-        <MessageSquare className="h-6 w-6 mr-2 text-teal-500" />
-        <h1 className="text-lg font-semibold text-gray-800">Chat Pet-Friendly</h1>
-      </div>
+      <div className="flex flex-col h-full w-full max-w-md mx-auto bg-white rounded-xl shadow-sm">
+        {/* Header */}
+        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+          <div className="flex items-center">
+            <div className="bg-teal-50 p-1.5 rounded-full mr-2">
+              <Dog className="h-5 w-5 text-teal-500" />
+            </div>
+            <div>
+              <h1 className="text-sm font-medium text-gray-800">Buddy</h1>
+              <p className="text-xs text-gray-500">Asistente de viajes pet-friendly</p>
+            </div>
+          </div>
+          <button className="text-gray-400 hover:text-gray-600 transition-colors">
+            <X className="h-5 w-5" />
+          </button>
+        </div>
 
-      <div className="flex-1 overflow-y-auto mb-4 space-y-4">
-        {chatMessages.map((msg, index) => (
-          <ChatMessage key={index} msg={msg} primaryColor={primaryColor} />
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
+        {/* Chat Messages Area */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50/50">
+          {chatMessages.map((msg, index) => (
+            <ChatMessage key={index} msg={msg} primaryColor={primaryColor} />
+          ))}
 
-      <div className="flex items-center border rounded-lg overflow-hidden">
-        <input
-          type="text"
-          value={chatInput}
-          onChange={(e) => setChatInput(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-          placeholder="Pregunta sobre viajes pet-friendly..."
-          className="flex-1 px-4 py-2 focus:outline-none"
-        />
-        <button
-          onClick={handleSendMessage}
-          className={`${primaryColor} text-white p-2 rounded-r`}
-          aria-label="Enviar mensaje"
-        >
-          <Send className="h-5 w-5" />
-        </button>
+          {/* Typing indicator */}
+          {isTyping && (
+            <div className="flex">
+              <div className="bg-gray-50 text-gray-800 p-3 rounded-2xl shadow-sm max-w-xs">
+                <div className="flex items-center space-x-1">
+                  <div className="w-2 h-2 rounded-full bg-teal-400 animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                  <div className="w-2 h-2 rounded-full bg-teal-400 animate-bounce" style={{ animationDelay: '200ms' }}></div>
+                  <div className="w-2 h-2 rounded-full bg-teal-400 animate-bounce" style={{ animationDelay: '400ms' }}></div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Quick suggestions */}
+          {showSuggestions && (
+            <div className="flex flex-col space-y-2 mt-2">
+              <p className="text-xs text-gray-500 px-2">Sugerencias:</p>
+              <div className="flex flex-wrap gap-2">
+                {quickSuggestions.map((suggestion, idx) => (
+                  <QuickQuestionButton
+                    key={idx}
+                    text={suggestion}
+                    onClick={handleQuickQuestion}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div ref={messagesEndRef} />
+        </div>
+
+        {/* Input Area */}
+        <div className="p-3 border-t border-gray-100 bg-white">
+          <div className="flex items-center rounded-xl bg-gray-50 pl-3 pr-1 py-1">
+            <input
+              type="text"
+              ref={inputRef}
+              value={chatInput}
+              onChange={(e) => setChatInput(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+              placeholder="Pregunta sobre viajes pet-friendly..."
+              className="flex-1 bg-transparent text-sm px-1 py-1.5 focus:outline-none"
+            />
+            <div className="flex items-center space-x-1">
+              <button className="text-gray-400 hover:text-teal-500 p-1.5 rounded-full transition-colors">
+                <Paperclip className="h-4 w-4" />
+              </button>
+              <button
+                onClick={handleSendMessage}
+                className={`${primaryColor} text-white p-2 rounded-lg transition-all hover:shadow-md`}
+                aria-label="Enviar mensaje"
+                disabled={!chatInput.trim()}
+              >
+                <Send className="h-4 w-4" />
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
