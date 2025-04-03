@@ -622,10 +622,10 @@ const PetFriendlyTravelLanding = () => {
                     </div>
 
                     <div className="text-center mt-10">
-                        <a href="#" className="text-teal-500 font-semibold hover:underline inline-flex items-center">
+                        <Link to="/normativas" className="text-teal-500 font-semibold hover:underline inline-flex items-center">
                             <span>Ver todas las preguntas frecuentes</span>
                             <ChevronRight size={16} className="ml-2" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>
