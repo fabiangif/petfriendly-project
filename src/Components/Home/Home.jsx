@@ -157,6 +157,7 @@ const PetFriendlyTravelLanding = () => {
             icon: <Package size={20} className="text-blue-600" />,
             description: "Asesoramiento y gestión de toda la documentación necesaria para viajar con tu mascota internacionalmente: pasaportes, microchips, vacunas y certificados sanitarios.",
             linkText: "Consultar requisitos",
+            link: "/normativas",
             image: "https://www.portafolio.co/files/article_new_multimedia/uploads/2024/08/13/66bb75e78cef8.jpeg",
             bgColor: "bg-blue-100",
             textColor: "text-blue-600"
@@ -166,6 +167,7 @@ const PetFriendlyTravelLanding = () => {
             icon: <Plane size={20} className="text-green-600" />,
             description: "Servicio de búsqueda y reserva en aerolíneas pet-friendly con las mejores condiciones para tu mascota, tanto en cabina como en bodega climatizada.",
             linkText: "Buscar vuelos",
+            link: "/flights",
             image: "https://images.ctfassets.net/1sv59kqumaqp/3o655w9mwQ0yMJnR1gdCsV/7fb8ecc2263eb3b61b25b2336836e9ac/perro_con_pase_de_abordar.jpg",
             bgColor: "bg-green-100",
             textColor: "text-green-600"
@@ -175,6 +177,7 @@ const PetFriendlyTravelLanding = () => {
             icon: <Calendar size={20} className="text-purple-600" />,
             description: "Creamos un plan de viaje completo adaptado a ti y tu mascota, incluyendo alojamientos, transportes, restaurantes y actividades donde ambos sean bienvenidos.",
             linkText: "Diseñar itinerario",
+            link: "/asistente",
             image: "https://www.universal-assistance.com/uablog/wp-content/uploads/2023/01/como-elaborar-itinerario-de-viaje.jpg",
             bgColor: "bg-purple-100",
             textColor: "text-purple-600"
@@ -354,7 +357,7 @@ const PetFriendlyTravelLanding = () => {
                                         <h3 className="text-xl font-semibold text-gray-800">{service.name}</h3>
                                     </div>
                                     <p className="text-gray-600 mb-4">{service.description}</p>
-                                    <a href="#" className={`${service.textColor} font-semibold hover:underline inline-flex items-center`}>
+                                    <a href={service.link} className={`${service.textColor} font-semibold hover:underline inline-flex items-center`}>
                                         <span>{service.linkText}</span>
                                         <ChevronRight size={16} className="ml-2" />
                                     </a>
@@ -393,10 +396,10 @@ const PetFriendlyTravelLanding = () => {
                                     <span>Tours especiales que incluyen a tu compañero peludo</span>
                                 </li>
                             </ul>
-                            <button className="bg-teal-500 hover:bg-teal-600 text-white py-3 px-8 rounded-lg transition inline-flex items-center">
+                            <Link to="/traveler" className="bg-teal-500 hover:bg-teal-600 text-white py-3 px-8 rounded-lg transition inline-flex items-center">
                                 <Globe size={18} className="mr-2" />
                                 <span>Explorar paquetes a Cartagena</span>
-                            </button>
+                            </Link>
                         </div>
                         <div className="md:w-1/2">
                             <div className="grid grid-cols-2 gap-4">
@@ -489,10 +492,10 @@ const PetFriendlyTravelLanding = () => {
                         <p className="text-lg mb-6">
                             Únete a miles de viajeros que disfrutan de aventuras increíbles junto a sus mascotas. Registrate ahora y recibe un 10% de descuento en tu primera reserva.
                         </p>
-                        <button className="bg-white text-teal-500 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition transform hover:scale-105 inline-flex items-center">
+                        <Link to="/traveler" className="bg-white text-teal-500 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition transform hover:scale-105 inline-flex items-center">
                             <User size={20} className="mr-2" />
                             <span>Planificar mi viaje ahora</span>
-                        </button>
+                        </Link>
                     </div>
                     <div className="md:w-1/2 flex justify-center">
                         <img src="https://likesolidaria.com.co/generacion-like/uploads/images/2023/02/image_750x_63e5838bbc0a8.jpg" alt="Mascota viajando" className="rounded-lg shadow-lg max-w-full" loading='lazy'/>
