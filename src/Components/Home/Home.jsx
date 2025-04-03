@@ -104,21 +104,24 @@ const PetFriendlyTravelLanding = () => {
             description: "Vuelos, hoteles y experiencias diseñadas para ti y tu mascota",
             buttonText: "Explorar Destinos",
             icon: <Plane size={20} />,
-            image: bg
+            image: bg,
+            link:"/traveler"
         },
         {
             title: "Destinos Pet-Friendly por todo el mundo",
             description: "Aventuras sin preocupaciones, con servicios especiales para mascotas",
             buttonText: "Ver Ofertas",
             icon: <Globe size={20} />,
-            image: bg2
+            image: bg2,
+            link:"/flights"
         },
         {
             title: "Servicios Premium para Viajeros con Mascotas",
             description: "Transporte, alojamiento y actividades que incluyen a tu compañero peludo",
             buttonText: "Reservar Ahora",
             icon: <Compass size={20} />,
-            image: bg3
+            image: bg3,
+            link:"/explorar"
         }
     ];
 

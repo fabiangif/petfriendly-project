@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, PawPrint, Map, Heart, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import {Link} from "react-router-dom";
 
 const HeroSection = ({ heroSlides }) => {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -168,9 +169,11 @@ const HeroSection = ({ heroSlides }) => {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
-                                    {heroSlides[activeSlide].icon}
-                                    <span>{heroSlides[activeSlide].buttonText}</span>
-                                    <ArrowRight size={16} />
+                                    <Link to={heroSlides[activeSlide].link} className="flex items-center gap-2">
+                                        {heroSlides[activeSlide].icon}
+                                        <span>{heroSlides[activeSlide].buttonText}</span>
+                                        <ArrowRight size={16} />
+                                    </Link>
                                 </motion.button>
 
                                 <button className="text-white border border-white/50 hover:bg-white/10 font-medium py-3 px-6 rounded-full transition-all backdrop-blur-sm">
