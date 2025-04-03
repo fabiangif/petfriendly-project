@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, Search, User, ChevronLeft, ChevronRight, Heart, Package, PawPrint, Scissors, Activity, Award, ChevronDown, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Plane, Globe, Compass, Hotel, Map, Umbrella, Calendar } from 'lucide-react';
+import { ShoppingCart, Search, User, ChevronLeft, ChevronRight, Heart, Package, PawPrint, Scissors, Activity, Award, ChevronDown, Phone, MapPin, Instagram, Facebook, Twitter, Plane, Globe, Compass, Hotel, Map, Umbrella, Calendar, CheckCircle, Mail, Loader } from 'lucide-react';
 import bg from "../../assets/images/bg.png"
 import bg3 from "../../assets/images/bg3.png"
 import bg2 from '../../assets/images/bg2.png'
@@ -105,7 +105,7 @@ const PetFriendlyTravelLanding = () => {
             buttonText: "Explorar Destinos",
             icon: <Plane size={20} />,
             image: bg,
-            link:"/traveler"
+            link: "/traveler"
         },
         {
             title: "Destinos Pet-Friendly por todo el mundo",
@@ -113,7 +113,7 @@ const PetFriendlyTravelLanding = () => {
             buttonText: "Ver Ofertas",
             icon: <Globe size={20} />,
             image: bg2,
-            link:"/flights"
+            link: "/flights"
         },
         {
             title: "Servicios Premium para Viajeros con Mascotas",
@@ -121,7 +121,7 @@ const PetFriendlyTravelLanding = () => {
             buttonText: "Reservar Ahora",
             icon: <Compass size={20} />,
             image: bg3,
-            link:"/explorar"
+            link: "/explorar"
         }
     ];
 
@@ -194,6 +194,31 @@ const PetFriendlyTravelLanding = () => {
         }, 5000);
         return () => clearInterval(interval);
     }, [heroSlides.length]);
+
+    const [email, setEmail] = useState('');
+    const [status, setStatus] = useState('idle'); // idle, loading, success
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!email || !email.includes('@')) {
+            alert('Por favor, introduce un correo electrónico válido');
+            return;
+        }
+
+        // Simular el envío a una base de datos
+        setStatus('loading');
+
+        // Simulación de tiempo de procesamiento
+        setTimeout(() => {
+            setStatus('success');
+            // Resetear el formulario después de un tiempo
+            setTimeout(() => {
+                setEmail('');
+                setStatus('idle');
+            }, 3000);
+        }, 1500);
+    };
 
     // Rating stars component
     const RatingStars = ({ rating }) => {
@@ -407,9 +432,9 @@ const PetFriendlyTravelLanding = () => {
                         <div className="md:w-1/2">
                             <div className="grid grid-cols-2 gap-4">
                                 <img src="https://www.playasdecolombia.info/wp-content/uploads/2024/03/la_playa_de_bocagrande_colombia_1.jpg" alt="Amsterdam canals" className="rounded-lg shadow-md w-full h-full object-cover" loading='lazy' />
-                                <img src="https://i0.wp.com/travelandleisure-es.com/wp-content/uploads/2024/01/Cartagena_Colombia.jpg?fit=2258%2C1717&ssl=1" alt="Amsterdam park with dog" className="rounded-lg shadow-md w-full h-full object-cover mt-6" loading='lazy'/>
-                                <img src="https://blog.properati.com.co/wp-content/uploads/2021/02/GettyImages-1148861090-1024x681.jpg" alt="Amsterdam cafe with pets" className="rounded-lg shadow-md w-full h-full object-cover" loading='lazy'/>
-                                <img src="https://turismo.encolombia.com/wp-content/uploads/2019/12/Playas-en-Cartagena.webp" alt="Amsterdam pet-friendly hotel" className="rounded-lg shadow-md w-full h-full object-cover mt-6" loading='lazy'/>
+                                <img src="https://i0.wp.com/travelandleisure-es.com/wp-content/uploads/2024/01/Cartagena_Colombia.jpg?fit=2258%2C1717&ssl=1" alt="Amsterdam park with dog" className="rounded-lg shadow-md w-full h-full object-cover mt-6" loading='lazy' />
+                                <img src="https://blog.properati.com.co/wp-content/uploads/2021/02/GettyImages-1148861090-1024x681.jpg" alt="Amsterdam cafe with pets" className="rounded-lg shadow-md w-full h-full object-cover" loading='lazy' />
+                                <img src="https://turismo.encolombia.com/wp-content/uploads/2019/12/Playas-en-Cartagena.webp" alt="Amsterdam pet-friendly hotel" className="rounded-lg shadow-md w-full h-full object-cover mt-6" loading='lazy' />
                             </div>
                         </div>
                     </div>
@@ -501,7 +526,7 @@ const PetFriendlyTravelLanding = () => {
                         </Link>
                     </div>
                     <div className="md:w-1/2 flex justify-center">
-                        <img src="https://likesolidaria.com.co/generacion-like/uploads/images/2023/02/image_750x_63e5838bbc0a8.jpg" alt="Mascota viajando" className="rounded-lg shadow-lg max-w-full" loading='lazy'/>
+                        <img src="https://likesolidaria.com.co/generacion-like/uploads/images/2023/02/image_750x_63e5838bbc0a8.jpg" alt="Mascota viajando" className="rounded-lg shadow-lg max-w-full" loading='lazy' />
                     </div>
                 </div>
             </section>
@@ -630,7 +655,6 @@ const PetFriendlyTravelLanding = () => {
                 </div>
             </section>
 
-            {/* Newsletter Section */}
             <section className="py-16 bg-teal-500 text-white">
                 <div className="container mx-auto px-6">
                     <div className="max-w-3xl mx-auto text-center">
@@ -638,16 +662,41 @@ const PetFriendlyTravelLanding = () => {
                         <p className="text-lg mb-8">
                             Suscríbete a nuestra newsletter y recibe las mejores ofertas, consejos de viaje y novedades para viajar con tu mascota.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-2">
-                            <input
-                                type="email"
-                                placeholder="Tu correo electrónico"
-                                className="flex-grow px-4 py-3 rounded-lg focus:outline-none text-gray-700 border-gray-600"
-                            />
-                            <button className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg transition">
-                                Suscribirme
-                            </button>
-                        </div>
+
+                        {status === 'success' ? (
+                            <div className="flex flex-col items-center justify-center bg-white text-teal-700 p-6 rounded-lg shadow-lg animate-fade-in">
+                                <CheckCircle size={48} className="text-green-500 mb-4" />
+                                <h3 className="text-xl font-bold">¡Gracias por suscribirte!</h3>
+                                <p className="mt-2">Hemos registrado tu correo electrónico correctamente.</p>
+                                <p className="text-sm mt-4 text-gray-600">Pronto recibirás nuestras novedades.</p>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+                                <div className="relative flex-grow">
+                                    <input
+                                        type="email"
+                                        placeholder="Tu correo electrónico"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        className="w-full px-4 py-3 pl-10 rounded-lg focus:outline-none text-gray-700 border-gray-600 bg-white"
+                                        disabled={status === 'loading'}
+                                    />
+                                    <Mail className="absolute left-3 top-3 text-gray-400" size={20} />
+                                </div>
+                                <button
+                                    type="submit"
+                                    disabled={status === 'loading'}
+                                    className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg transition flex items-center justify-center"
+                                >
+                                    {status === 'loading' ? (
+                                        <><Loader className="animate-spin mr-2" size={20} /> Procesando...</>
+                                    ) : (
+                                        'Suscribirme'
+                                    )}
+                                </button>
+                            </form>
+                        )}
+
                         <p className="text-sm mt-4 opacity-80">
                             Al suscribirte, aceptas nuestra política de privacidad. No te preocupes, no enviamos spam.
                         </p>

@@ -13,6 +13,7 @@ import {
     Trash2,
     X
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const PurchaseSummary = () => {
     const {
@@ -261,9 +262,9 @@ const PurchaseSummary = () => {
                         </div>
                         <h3 className="text-lg font-medium text-gray-800 mb-2">Tu carrito está vacío</h3>
                         <p className="text-gray-500 mb-6">Agrega algunos productos para continuar con tu compra</p>
-                        <button className="bg-sky-500 hover:bg-sky-600 text-white py-2 px-6 rounded-lg transition-colors">
+                        <Link to="/traveler" className="bg-sky-500 hover:bg-sky-600 text-white py-2 px-6 rounded-lg transition-colors">
                             Explorar Productos
-                        </button>
+                        </Link>
                     </div>
                 ) : (
                     <div className="grid lg:grid-cols-5 gap-6">

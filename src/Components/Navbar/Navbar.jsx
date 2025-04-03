@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { PawPrint, MapPin, Info, MessageSquare, Menu, X, HouseIcon, PaperclipIcon, ShoppingCart, Plane  } from "lucide-react";
 import CartComponent from "../Cart/Cart";
+import logo from '../../assets/images/logo.png'
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -13,11 +14,10 @@ export default function Navbar() {
     return (
         <>
             <header className={`${primaryColor} text-white shadow-md sticky top-0 z-50`}>
-                <div className="container mx-auto p-4">
+                <div className="container mx-auto p-2">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center space-x-2">
-                            <PawPrint className="h-8 w-8" />
-                            <h1 className="text-2xl font-bold">PetTraveler</h1>
+                            <img src={logo} alt="" className="h-16 w-16 md:h-28 md:w-28" />
                         </div>
 
                         {/* Navegación de escritorio */}
