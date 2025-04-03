@@ -9,14 +9,16 @@ const NormativasMascotasColombia = () => {
     setActiveAccordion(activeAccordion === id ? '' : id);
   };
 
-  const mainColor = '#00baa8';
+  // Colores principales modernizados
+  const mainColor = '#00baa8'; // Cyan-600
+  const accentColor = '#00baa8'; // Sky-700
 
   const transportModes = [
-    { id: 'aereo', name: 'Aéreo', icon: <Plane className="w-6 h-6" /> },
-    { id: 'terrestre', name: 'Terrestre', icon: <Bus className="w-6 h-6" /> },
-    { id: 'ferroviario', name: 'Ferroviario', icon: <Train className="w-6 h-6" /> },
-    { id: 'particular', name: 'Particular', icon: <Car className="w-6 h-6" /> },
-    { id: 'maritimo', name: 'Marítimo', icon: <Ship className="w-6 h-6" /> },
+    { id: 'aereo', name: 'Aéreo', icon: <Plane className="w-5 h-5" /> },
+    { id: 'terrestre', name: 'Terrestre', icon: <Bus className="w-5 h-5" /> },
+    { id: 'ferroviario', name: 'Ferroviario', icon: <Train className="w-5 h-5" /> },
+    { id: 'particular', name: 'Particular', icon: <Car className="w-5 h-5" /> },
+    { id: 'maritimo', name: 'Marítimo', icon: <Ship className="w-5 h-5" /> },
   ];
 
   const accordionData = {
@@ -27,7 +29,7 @@ const NormativasMascotasColombia = () => {
         content: (
           <div>
             <p className="mb-2">Para viajar con mascotas en avión dentro de Colombia, debes considerar:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul className="list-disc pl-6 space-y-2">
               <li>Certificado de vacunación vigente (especialmente la antirrábica para perros y gatos)</li>
               <li>Certificado de salud expedido por un veterinario con no más de 5 días de anterioridad</li>
               <li>Guacal o contenedor adecuado que cumpla con las regulaciones de la aerolínea</li>
@@ -42,7 +44,7 @@ const NormativasMascotasColombia = () => {
         content: (
           <div>
             <p className="mb-2">Para llevar a tu mascota en cabina:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul className="list-disc pl-6 space-y-2">
               <li>Peso máximo (mascota + guacal): generalmente 8-10 kg según la aerolínea</li>
               <li>El guacal debe caber debajo del asiento frente a ti</li>
               <li>La mascota debe permanecer dentro del guacal durante todo el vuelo</li>
@@ -57,7 +59,7 @@ const NormativasMascotasColombia = () => {
         content: (
           <div>
             <p className="mb-2">Para mascotas que viajan en bodega:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul className="list-disc pl-6 space-y-2">
               <li>Guacal rígido con ventilación adecuada</li>
               <li>Tamaño del guacal: la mascota debe poder pararse, girar y acostarse cómodamente</li>
               <li>Recipientes para agua y comida fijados a la puerta del guacal</li>
@@ -72,22 +74,22 @@ const NormativasMascotasColombia = () => {
         title: 'Políticas por aerolíneas',
         content: (
           <div>
-            <p className="font-semibold mb-1">Avianca:</p>
-            <ul className="list-disc pl-6 mb-3 space-y-1">
+            <p className="font-medium mb-2">Avianca:</p>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Mascotas hasta 8 kg pueden viajar en cabina</li>
               <li>Para mascotas más grandes, deben viajar en bodega</li>
               <li>Se debe reservar el servicio con mínimo 24 horas de anticipación</li>
             </ul>
             
-            <p className="font-semibold mb-1">LATAM:</p>
-            <ul className="list-disc pl-6 mb-3 space-y-1">
+            <p className="font-medium mb-2">LATAM:</p>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Mascotas hasta 7 kg (incluido el contenedor) pueden viajar en cabina</li>
               <li>Máximo una mascota por pasajero</li>
               <li>Reserva con mínimo 48 horas de anticipación</li>
             </ul>
             
-            <p className="font-semibold mb-1">Viva Air / Viva Colombia:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <p className="font-medium mb-2">Viva Air / Viva Colombia:</p>
+            <ul className="list-disc pl-6 space-y-2">
               <li>Solo permite mascotas en cabina hasta 10 kg (mascota + guacal)</li>
               <li>No ofrece servicio de transporte de mascotas en bodega</li>
               <li>Se recomienda reservar con anticipación por cupos limitados</li>
@@ -103,7 +105,7 @@ const NormativasMascotasColombia = () => {
         content: (
           <div>
             <p className="mb-2">Para viajar con mascotas en buses intermunicipales en Colombia:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul className="list-disc pl-6 space-y-2">
               <li>Las políticas varían según la empresa transportadora</li>
               <li>La mayoría de empresas permiten mascotas pequeñas en guacal bajo el asiento</li>
               <li>Algunas empresas transportan mascotas en compartimentos especiales</li>
@@ -119,20 +121,20 @@ const NormativasMascotasColombia = () => {
           <div>
             <p className="mb-2">Políticas de las principales empresas:</p>
             
-            <p className="font-semibold mb-1">Bolivariano / Expreso Palmira:</p>
-            <ul className="list-disc pl-6 mb-3 space-y-1">
+            <p className="font-medium mb-2">Bolivariano / Expreso Palmira:</p>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Permiten mascotas pequeñas en guacal que quepa bajo el asiento</li>
               <li>Tarifa adicional aproximada: $20,000 - $40,000 COP</li>
             </ul>
             
-            <p className="font-semibold mb-1">Copetran:</p>
-            <ul className="list-disc pl-6 mb-3 space-y-1">
+            <p className="font-medium mb-2">Copetran:</p>
+            <ul className="list-disc pl-6 mb-4 space-y-2">
               <li>Mascotas pequeñas en guacal en la zona de equipaje especial</li>
               <li>Reserva anticipada obligatoria</li>
             </ul>
             
-            <p className="font-semibold mb-1">Rápido Ochoa / Flota Magdalena:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <p className="font-medium mb-2">Rápido Ochoa / Flota Magdalena:</p>
+            <ul className="list-disc pl-6 space-y-2">
               <li>Políticas restrictivas, consultar directamente con la empresa</li>
               <li>Generalmente solo permiten mascotas pequeñas con guacal</li>
             </ul>
@@ -145,7 +147,7 @@ const NormativasMascotasColombia = () => {
         content: (
           <div>
             <p className="mb-2">Para un viaje terrestre con tu mascota:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul className="list-disc pl-6 space-y-2">
               <li>Lleva el carné de vacunación vigente</li>
               <li>Guacal cómodo y resistente de tamaño adecuado</li>
               <li>Lleva agua y alimento para el viaje</li>
@@ -163,8 +165,8 @@ const NormativasMascotasColombia = () => {
         title: 'Información general',
         content: (
           <div>
-            <p>El sistema ferroviario de pasajeros en Colombia es limitado. En el servicio turístico Tren de la Sabana:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <p className="mb-2">El sistema ferroviario de pasajeros en Colombia es limitado. En el servicio turístico Tren de la Sabana:</p>
+            <ul className="list-disc pl-6 space-y-2">
               <li>Se permite el ingreso de mascotas pequeñas en guacal</li>
               <li>La mascota debe permanecer en el guacal durante todo el recorrido</li>
               <li>Es necesario presentar carné de vacunación</li>
@@ -181,7 +183,7 @@ const NormativasMascotasColombia = () => {
         content: (
           <div>
             <p className="mb-2">Para transportar mascotas en vehículos particulares:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul className="list-disc pl-6 space-y-2">
               <li>Según el Código Nacional de Tránsito, las mascotas deben viajar de manera segura sin interferir con la conducción</li>
               <li>Se recomienda utilizar arneses de seguridad, transportines o barreras divisorias</li>
               <li>Las mascotas no deben viajar en el asiento delantero</li>
@@ -196,7 +198,7 @@ const NormativasMascotasColombia = () => {
         content: (
           <div>
             <p className="mb-2">Para viajes seguros en carro:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul className="list-disc pl-6 space-y-2">
               <li>Utiliza arnés de seguridad con enganche al cinturón del carro</li>
               <li>Transportín o guacal asegurado con el cinturón de seguridad</li>
               <li>Barrera divisoria para la zona de carga en camionetas</li>
@@ -212,7 +214,7 @@ const NormativasMascotasColombia = () => {
         content: (
           <div>
             <p className="mb-2">Para viajes intermunicipales o largos trayectos:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul className="list-disc pl-6 space-y-2">
               <li>Carné de vacunación al día</li>
               <li>Microchip o collar con identificación</li>
               <li>Para viajes a zonas fronterizas, consulta requisitos adicionales</li>
@@ -229,7 +231,7 @@ const NormativasMascotasColombia = () => {
         content: (
           <div>
             <p className="mb-2">Para servicios fluviales en Colombia (ríos Magdalena, Amazonas, etc.):</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul className="list-disc pl-6 space-y-2">
               <li>Las políticas varían según el operador del servicio</li>
               <li>En general, se permiten mascotas pequeñas en transportines</li>
               <li>Para embarcaciones grandes, consulta espacios designados para mascotas</li>
@@ -244,7 +246,7 @@ const NormativasMascotasColombia = () => {
         content: (
           <div>
             <p className="mb-2">Para servicios turísticos en Cartagena, Santa Marta y San Andrés:</p>
-            <ul className="list-disc pl-6 space-y-1">
+            <ul className="list-disc pl-6 space-y-2">
               <li>La mayoría de cruceros y catamaranes turísticos no permiten mascotas</li>
               <li>Excepción para perros de asistencia o servicio con documentación apropiada</li>
               <li>Para servicios privados, consulta directamente con el operador las políticas específicas</li>
@@ -304,78 +306,81 @@ const NormativasMascotasColombia = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-4 font-sans">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-teal-500 to-cyan-600 rounded-lg p-6 mb-8 shadow-lg">
+    <div className="w-full max-w-6xl mx-auto p-4 font-sans bg-gray-50">
+      {/* Header - Diseño más moderno y minimalista */}
+      <div className="bg-gradient-to-r from-cyan-600 to-blue-700 rounded-xl p-8 mb-8 shadow-lg">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
               Viajar con Mascotas en Colombia
             </h1>
-            <p className="text-white text-lg md:text-xl opacity-90">
-              Normativas y requisitos para todos los medios de transporte
+            <p className="text-white text-lg opacity-90 max-w-2xl">
+              Guía completa con normativas y requisitos para todos los medios de transporte
             </p>
           </div>
-          <div className="hidden md:block">
-            <PawPrint className="w-16 h-16 text-white opacity-80" />
+          <div className="hidden md:flex items-center justify-center bg-white/20 p-4 rounded-full">
+            <PawPrint className="w-12 h-12 text-white" />
           </div>
         </div>
       </div>
 
-      {/* Intro */}
-      <div className="mb-8 bg-white p-6 rounded-lg shadow-md border-l-4" style={{borderColor: mainColor}}>
-        <h2 className="text-2xl font-semibold mb-3" style={{color: mainColor}}>
-          <Info className="inline-block w-6 h-6 mr-2 mb-1" />
+      {/* Intro - Diseño más limpio */}
+      <div className="mb-8 bg-white p-6 rounded-xl shadow-sm border-l-4 border-cyan-600">
+        <h2 className="text-2xl font-semibold mb-4 text-cyan-700 flex items-center">
+          <Info className="w-6 h-6 mr-2" />
           Información General
         </h2>
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 mb-5 leading-relaxed">
           Viajar con mascotas en Colombia requiere preparación y conocimiento de las normativas específicas según el medio de transporte. Cada compañía puede tener políticas diferentes, por lo que siempre es recomendable verificar con antelación.
         </p>
-        <div className="bg-amber-50 p-4 rounded-md border border-amber-200">
+        <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
           <div className="flex items-start">
-            <AlertTriangle className="w-5 h-5 text-amber-600 mr-2 mt-1 flex-shrink-0" />
+            <AlertTriangle className="w-5 h-5 text-amber-600 mr-3 mt-1 flex-shrink-0" />
             <p className="text-amber-800 text-sm">
-              <span className="font-semibold">Importante:</span> Recuerda que estas normativas pueden cambiar. Te recomendamos confirmar directamente con la empresa de transporte antes de tu viaje.
+              <span className="font-medium">Importante:</span> Recuerda que estas normativas pueden cambiar. Te recomendamos confirmar directamente con la empresa de transporte antes de tu viaje.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Tabs for transport modes */}
+      {/* Tabs for transport modes - Diseño más moderno */}
       <div className="mb-8">
-        <div className="flex overflow-x-auto pb-2 space-x-2 md:space-x-4">
+        <div className="flex overflow-x-auto pb-3 space-x-2 md:space-x-3 scrollbar-hide">
           {transportModes.map((mode) => (
             <button
               key={mode.id}
-              className={`flex items-center px-4 py-3 rounded-lg transition-colors border font-medium whitespace-nowrap ${
+              className={`flex items-center px-5 py-3 rounded-lg transition-all duration-200 font-medium whitespace-nowrap ${
                 activeTab === mode.id 
-                  ? 'bg-teal-500 text-white border-teal-600' 
-                  : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50'
+                  ? 'bg-cyan-600 text-white shadow-md' 
+                  : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
               }`}
               onClick={() => setActiveTab(mode.id)}
             >
-              <span className="mr-2">{mode.icon}</span>
+              <span className={`mr-2 ${activeTab === mode.id ? 'text-white' : 'text-cyan-600'}`}>{mode.icon}</span>
               {mode.name}
             </button>
           ))}
         </div>
 
-        {/* Content for the active tab */}
-        <div className="mt-4 bg-white rounded-lg shadow-md p-5">
+        {/* Content for the active tab - Diseño más elegante */}
+        <div className="mt-6 bg-white rounded-xl shadow-sm p-6">
           {accordionData[activeTab] && accordionData[activeTab].map((item) => (
-            <div key={item.id} className="mb-3 border rounded-lg overflow-hidden">
+            <div key={item.id} className="mb-4 border border-gray-200 rounded-lg overflow-hidden last:mb-0">
               <button
-                className="w-full p-4 text-left font-medium flex justify-between items-center"
-                style={{backgroundColor: activeAccordion === item.id ? '#e6f7f6' : 'white', color: mainColor}}
+                className="w-full p-4 text-left font-medium flex justify-between items-center transition-colors"
+                style={{
+                  backgroundColor: activeAccordion === item.id ? 'rgba(8, 145, 178, 0.05)' : 'white', 
+                  color: mainColor
+                }}
                 onClick={() => toggleAccordion(item.id)}
               >
-                <span>{item.title}</span>
+                <span className="text-lg">{item.title}</span>
                 <ChevronDown 
-                  className={`w-5 h-5 transition-transform ${activeAccordion === item.id ? 'transform rotate-180' : ''}`} 
+                  className={`w-5 h-5 transition-transform duration-200 ${activeAccordion === item.id ? 'transform rotate-180' : ''}`} 
                 />
               </button>
               {activeAccordion === item.id && (
-                <div className="p-4 bg-white border-t">
+                <div className="p-5 bg-white border-t border-gray-100">
                   {item.content}
                 </div>
               )}
@@ -384,21 +389,21 @@ const NormativasMascotasColombia = () => {
         </div>
       </div>
 
-      {/* Preguntas Frecuentes */}
-      <div className="mb-8 bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-4" style={{color: mainColor}}>
-          <Award className="inline-block w-6 h-6 mr-2 mb-1" />
+      {/* Preguntas Frecuentes - Diseño mejorado */}
+      <div className="mb-8 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+        <h2 className="text-2xl font-semibold mb-5 text-cyan-700 flex items-center">
+          <Award className="w-6 h-6 mr-2" />
           Preguntas Frecuentes
         </h2>
 
-        {/* Search */}
+        {/* Search - Diseño más limpio */}
         <div className="relative mb-6">
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
             <Search className="h-5 w-5 text-gray-400" />
           </div>
           <input
             type="text"
-            className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+            className="block w-full pl-12 pr-4 py-3 border border-gray-200 rounded-lg bg-gray-50 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-all"
             placeholder="Buscar en preguntas frecuentes..."
             value={searchTerm}
             onChange={handleSearch}
@@ -406,44 +411,60 @@ const NormativasMascotasColombia = () => {
         </div>
 
         {filteredFaqs.length === 0 ? (
-          <div className="text-center py-6 text-gray-500">
+          <div className="text-center py-8 text-gray-500">
             No se encontraron resultados para "{searchTerm}"
           </div>
         ) : (
-          filteredFaqs.map((faq) => (
-            <div key={faq.id} className="mb-4 border-b border-gray-200 pb-4 last:border-0 last:pb-0">
-              <h3 
-                className="font-medium text-lg mb-2 cursor-pointer hover:text-teal-600"
-                style={{color: mainColor}}
-                onClick={() => toggleAccordion(faq.id)}
-              >
-                {faq.question}
-              </h3>
-              {(activeAccordion === faq.id || searchTerm) && (
-                <p className="text-gray-700">{faq.answer}</p>
-              )}
-            </div>
-          ))
+          <div className="space-y-5">
+            {filteredFaqs.map((faq) => (
+              <div key={faq.id} className="border-b border-gray-100 pb-5 last:border-0">
+                <h3 
+                  className="font-medium text-lg mb-3 cursor-pointer hover:text-cyan-600 transition-colors flex items-start"
+                  onClick={() => toggleAccordion(faq.id)}
+                >
+                  <span className="text-cyan-600 mr-2">Q.</span>
+                  {faq.question}
+                </h3>
+                {(activeAccordion === faq.id || searchTerm) && (
+                  <div className="pl-6 text-gray-700 leading-relaxed">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         )}
       </div>
 
-      {/* Footer */}
-      <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white p-5 rounded-lg shadow-lg">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <h3 className="text-xl font-semibold mb-2 flex items-center">
+      {/* Footer - Diseño más profesional */}
+      <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white p-6 rounded-xl shadow-lg">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div>
+            <h3 className="text-xl font-semibold mb-3 flex items-center">
               <MapPin className="w-5 h-5 mr-2" />
               Contacto y Recursos
             </h3>
-            <ul className="text-gray-300 space-y-1">
-              <li>Ministerio de Transporte: <span className="text-teal-300">mintransporte.gov.co</span></li>
-              <li>Aeronáutica Civil: <span className="text-teal-300">aerocivil.gov.co</span></li>
-              <li>ICA (certificados sanitarios): <span className="text-teal-300">ica.gov.co</span></li>
+            <ul className="text-gray-300 space-y-2">
+              <li className="flex items-center">
+                <span className="w-40">Ministerio de Transporte:</span>
+                <span className="text-cyan-300">mintransporte.gov.co</span>
+              </li>
+              <li className="flex items-center">
+                <span className="w-40">Aeronáutica Civil:</span>
+                <span className="text-cyan-300">aerocivil.gov.co</span>
+              </li>
+              <li className="flex items-center">
+                <span className="w-40">ICA (certificados):</span>
+                <span className="text-cyan-300">ica.gov.co</span>
+              </li>
             </ul>
           </div>
           <div className="text-center md:text-right">
-            <p className="text-gray-300 text-sm">
-              Última actualización: Marzo 2025<br />
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-sm mb-2">
+              <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+              Actualizado: Marzo 2025
+            </div>
+            <p className="text-gray-400 text-sm">
               Verifica siempre la información más reciente
             </p>
           </div>

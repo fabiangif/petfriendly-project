@@ -1,7 +1,8 @@
 import React from "react";
 import { PawPrint, MapPin, MessageSquare, CircleUser, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
-export default function Footer() {
+export default function Footer() {;
     return (
         <footer footer className = "bg-gray-800 text-white py-8" >
             <div className="container mx-auto px-4">
@@ -20,21 +21,19 @@ export default function Footer() {
                         <div>
                             <h3 className="font-bold mb-4">Explora</h3>
                             <ul className="space-y-2">
-                                <li><a href="#" className="text-gray-400 hover:text-white">Destinos</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Hoteles</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Parques</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Servicios veterinarios</a></li>
+                                <li><Link to="/flights" className="text-gray-400 hover:text-white">Vuelos</Link></li>
+                                <li><Link to="/explorar" className="text-gray-400 hover:text-white">Hoteles</Link></li>
+                                <li><Link to="/traveler" className="text-gray-400 hover:text-white">Parques</Link></li>
                             </ul>
                         </div>
 
                         <div>
                             <h3 className="font-bold mb-4">Información</h3>
                             <ul className="space-y-2">
-                                <li><a href="#" className="text-gray-400 hover:text-white">Normativas por país</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Requisitos de viaje</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Consejos para viajar</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Preguntas frecuentes</a></li>
-                                <li><a href="#" className="text-gray-400 hover:text-white">Blog</a></li>
+                                <li><Link to="/normativas" className="text-gray-400 hover:text-white">Normativas por país</Link></li>
+                                <li><Link to="/normativas" className="text-gray-400 hover:text-white">Requisitos de viaje</Link></li>
+                                <li><Link to="/asistente" className="text-gray-400 hover:text-white">Consejos para viajar</Link></li>
+                                <li><Link to="/asistente" className="text-gray-400 hover:text-white">Preguntas frecuentes</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -48,7 +47,7 @@ export default function Footer() {
                             </li>
                             <li className="flex items-center text-gray-400">
                                 <MapPin className="h-4 w-4 mr-2" />
-                                <span>Madrid, España</span>
+                                <span>Bogotá, Colombia</span>
                             </li>
                         </ul>
 
