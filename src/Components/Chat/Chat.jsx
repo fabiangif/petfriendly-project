@@ -57,7 +57,7 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
   ]);
 
   const [showSuggestions, setShowSuggestions] = useState(true);
-    const [isTyping, setIsTyping] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
 
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
@@ -722,7 +722,11 @@ const PetFriendlyChatbot = ({ primaryColor = 'bg-teal-500' }) => {
   };
 
   return (
-    <div className="flex justify-center items-center h-[70vh]">
+    <div className="flex justify-center items-center flex-col h-[70vh] my-26">
+      <div className='py-16 text-center'>
+        <h1 className="text-6xl uppercase font-bold tracking-tighter">Chatea con Buddy</h1>
+        <p className="mt-4">El asistente virtual para tus viajes pet-friendly</p>
+      </div>
       <div className="flex flex-col h-full w-full max-w-md mx-auto bg-white rounded-xl shadow-sm">
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
