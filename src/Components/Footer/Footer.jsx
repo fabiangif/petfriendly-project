@@ -1,5 +1,5 @@
 import React from "react";
-import { PawPrint, MapPin, MessageSquare, CircleUser, Heart } from "lucide-react";
+import { PawPrint, MapPin, MessageSquare, CircleUser, Heart, MessageCircle, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {;
@@ -54,14 +54,11 @@ export default function Footer() {;
                         <div className="mt-4">
                             <h4 className="text-sm font-medium mb-2">Síguenos</h4>
                             <div className="flex space-x-4">
-                                <a href="#" className="text-gray-400 hover:text-white">
-                                    <CircleUser className="h-5 w-5" />
+                                <a href="https://www.whatsapp.com" className="text-gray-400 hover:text-white">
+                                    <MessageCircle className="h-5 w-5" />
                                 </a>
-                                <a href="#" className="text-gray-400 hover:text-white">
-                                    <MessageSquare className="h-5 w-5" />
-                                </a>
-                                <a href="#" className="text-gray-400 hover:text-white">
-                                    <Heart className="h-5 w-5" />
+                                <a href="https://www.instagram.com/pettravelerenjoy/" className="text-gray-400 hover:text-white">
+                                    <Instagram className="h-5 w-5" />
                                 </a>
                             </div>
                         </div>
