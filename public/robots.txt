@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /registro/
+Disallow: /carrito/
+Disallow: /checkout/
+Disallow: /privado/
+Allow: /
+
+# Crawl-delay opcional para bots agresivos (descomentar si es necesario)
+# Crawl-delay: 10
+
+# Enlace al sitemap (ajusta la URL cuando tengas el sitemap listo)
+Sitemap: https://petraveler.com/sitemap.xml
